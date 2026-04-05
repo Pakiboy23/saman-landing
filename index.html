@@ -415,8 +415,11 @@ function handleSubmit() {
   }
   document.getElementById('form-row').style.display = 'none';
   document.getElementById('success-msg').style.display = 'block';
-  // Replace this with your actual form endpoint (Formspree, Notion, Supabase, etc.)
-  console.log('Email captured:', email);
+  fetch('https://formspree.io/f/xlgoowzq', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  });
 }
 
 document.getElementById('email-input').addEventListener('keydown', function(e) {
