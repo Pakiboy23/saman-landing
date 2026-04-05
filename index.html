@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Saman tracks your pantry, alerts you when you're running low, and restocks from Instacart in one tap. Coming soon for iPhone.">
+<title>Saman — Your kitchen, always stocked</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF6EF;
+  --bg-card: #F2EBE0;
+  --text: #1C0F00;
+  --text-muted: #7A6352;
+  --accent: #C67E2A;
+  --accent-light: #F5E6CC;
+  --border: rgba(28,15,0,0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--bg); }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* nav */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: linear-gradient(to bottom, var(--bg) 60%, transparent);
+}
+
+.wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.wordmark span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-top: -2px;
+}
+
+.nav-badge {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+/* hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 1.0;
+  color: var(--text);
+  max-width: 800px;
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-sub-scene {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 0.35s;
+}
+
+.hero-body {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 460px;
+  line-height: 1.7;
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 0.45s;
+}
+
+.hero-body strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* email form */
+.form-wrap {
+  width: 100%;
+  max-width: 420px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 0.55s;
+}
+
+.form-row {
+  display: flex;
+  gap: 8px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 6px 6px 6px 16px;
+  box-shadow: 0 2px 20px rgba(28,15,0,0.06);
+}
+
+.form-row input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.form-row input::placeholder { color: var(--text-muted); opacity: 0.6; }
+
+.form-row button {
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.form-row button:hover { background: #3D2010; }
+.form-row button:active { transform: scale(0.98); }
+
+.form-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.success-msg {
+  display: none;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+  padding: 14px;
+  text-align: center;
+}
+
+/* divider */
+.section-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--border);
+  margin: 0 auto 80px;
+}
+
+/* features */
+.features {
+  padding: 0 24px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.features-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.features-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+}
+
+.feature-icon {
+  font-size: 22px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.feature-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.footer-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.footer-urdu {
+  font-size: 13px;
+  color: var(--text-muted);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+/* animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  nav { padding: 16px 20px; }
+  .hero { padding: 100px 20px 60px; }
+  .features-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+  .form-row { flex-direction: column; padding: 10px; border-radius: 16px; }
+  .form-row input { padding: 6px 8px; }
+  .form-row button { width: 100%; padding: 12px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wordmark">
+    Saman
+    <span>سامان</span>
+  </div>
+  <div class="nav-badge">Coming soon for iPhone</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">A smarter kitchen starts here</div>
+
+  <h1 class="hero-headline">Your kitchen,<br><em>always stocked.</em></h1>
+
+  <p class="hero-sub-scene">You reach for the lemons. They're gone. You're halfway through dinner.</p>
+
+  <p class="hero-body">
+    Saman tracks your pantry, fridge, and freezer. When you're running low,
+    it tells you. When you need to restock, it sends your list straight to
+    <strong>Instacart</strong> — from whichever store has the best price.
+  </p>
+
+  <div class="form-wrap">
+    <div class="form-row" id="form-row">
+      <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" />
+      <button onclick="handleSubmit()">Get early access</button>
+    </div>
+    <div class="success-msg" id="success-msg">
+      You're on the list. We'll reach out before launch.
+    </div>
+    <p class="form-note">iPhone only · No spam · Unsubscribe anytime</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="features">
+  <div class="features-inner">
+    <div class="features-label">What Saman does</div>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <span class="feature-icon">⬡</span>
+        <div class="feature-title">Scan once, track forever</div>
+        <p class="feature-desc">Point your iPhone at any barcode. Saman logs the item, quantity, and lets you set a low-stock threshold. No typing, no spreadsheets.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">◎</span>
+        <div class="feature-title">Know before you run out</div>
+        <p class="feature-desc">Saman watches your quantities and alerts you when something's getting low — before you're mid-recipe reaching for something that isn't there.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">→</span>
+        <div class="feature-title">One tap to reorder</div>
+        <p class="feature-desc">Your low-stock list goes straight to Instacart. Saman compares prices across Publix, Walmart, Costco, and Target so you always buy it cheaper.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-wordmark">Saman</div>
+  <div class="footer-urdu">سامان — provisions</div>
+  <div class="footer-note">samanpantry.com · © 2025</div>
+</footer>
+
+<script>
+function handleSubmit() {
+  const email = document.getElementById('email-input').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('email-input').style.outline = '2px solid #C67E2A';
+    setTimeout(() => document.getElementById('email-input').style.outline = '', 1200);
+    return;
+  }
+  document.getElementById('form-row').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+  // Replace this with your actual form endpoint (Formspree, Notion, Supabase, etc.)
+  console.log('Email captured:', email);
+}
+
+document.getElementById('email-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleSubmit();
+});
+</script>
+
+</body>
+</html>
