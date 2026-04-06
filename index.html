@@ -7,7 +7,7 @@
 <title>Saman — Your kitchen, always stocked</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #FAF6EF;
@@ -60,17 +60,18 @@ nav {
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.02em;
+  line-height: 1.1;
 }
 
 .wordmark span {
-  font-family: 'Outfit', sans-serif;
-  font-size: 10px;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 13px;
   font-weight: 400;
-  color: var(--text-muted);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: var(--accent);
   display: block;
-  margin-top: -2px;
+  margin-top: 1px;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .nav-badge {
@@ -299,9 +300,19 @@ footer {
 
 .footer-wordmark {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text);
+  line-height: 1.1;
+}
+
+.footer-wordmark-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--accent);
+  display: block;
+  margin-top: 2px;
 }
 
 .footer-note {
@@ -311,10 +322,10 @@ footer {
 }
 
 .footer-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
   font-size: 13px;
-  color: var(--text-muted);
-  opacity: 0.5;
-  font-style: italic;
+  color: var(--accent);
+  opacity: 0.8;
 }
 
 /* animations */
@@ -400,8 +411,11 @@ footer {
 </section>
 
 <footer>
-  <div class="footer-wordmark">Saman</div>
-  <div class="footer-urdu">سامان — provisions</div>
+  <div class="footer-wordmark">
+    Saman
+    <span class="footer-wordmark-urdu">سامان</span>
+  </div>
+  <div class="footer-urdu">provisions · pantry tracker for iPhone</div>
   <div class="footer-note">samanpantry.com · © 2025</div>
 </footer>
 
