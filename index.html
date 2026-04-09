@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Saman tracks your pantry, alerts you when you're running low, and restocks from Instacart in one tap. Coming soon for iPhone.">
+<!-- Open Graph -->
+<meta property="og:title" content="Saman — Your kitchen, always stocked">
+<meta property="og:description" content="Saman tracks your pantry, alerts you when you're running low, and restocks from Instacart in one tap. Coming soon for iPhone.">
+<meta property="og:url" content="https://www.samanpantry.com/">
+<meta property="og:type" content="website">
+<!-- TODO: create og-image.png at 1200×630px showing the app concept -->
+<meta property="og:image" content="https://www.samanpantry.com/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Saman — Your kitchen, always stocked">
+<meta name="twitter:description" content="Saman tracks your pantry, alerts you when you're running low, and restocks from Instacart in one tap. Coming soon for iPhone.">
+<meta name="twitter:image" content="https://www.samanpantry.com/og-image.png">
 <title>Saman — Your kitchen, always stocked</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,17 +23,18 @@
 <style>
 :root {
   --bg: #FAF6EF;
-  --bg-card: #F2EBE0;
+  --bg-card: #F3ECE0;
   --text: #1C0F00;
   --text-muted: #7A6352;
   --accent: #C67E2A;
   --accent-light: #F5E6CC;
   --border: rgba(28,15,0,0.1);
+  --instacart-green: #00861F;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { background: var(--bg); }
+html { background: var(--bg); scroll-behavior: smooth; }
 
 body {
   font-family: 'Outfit', sans-serif;
@@ -82,17 +95,25 @@ nav {
   padding: 5px 12px;
   border-radius: 20px;
   letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-badge:hover {
+  background: #EEDCBF;
 }
 
 /* hero */
 .hero {
+  min-height: 100svh;
   min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 120px 24px 80px;
+  padding: 90px 24px 40px;
   position: relative;
   z-index: 1;
 }
@@ -103,7 +124,7 @@ nav {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   opacity: 0;
   animation: fadeUp 0.6s ease forwards;
   animation-delay: 0.1s;
@@ -111,12 +132,12 @@ nav {
 
 .hero-headline {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(42px, 7vw, 80px);
   font-weight: 700;
   line-height: 1.0;
   color: var(--text);
   max-width: 800px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   opacity: 0;
   animation: fadeUp 0.7s ease forwards;
   animation-delay: 0.2s;
@@ -129,10 +150,10 @@ nav {
 
 .hero-sub-scene {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(18px, 3vw, 26px);
+  font-size: clamp(17px, 2.5vw, 24px);
   font-weight: 400;
   color: var(--text-muted);
-  margin-bottom: 36px;
+  margin-bottom: 24px;
   font-style: italic;
   opacity: 0;
   animation: fadeUp 0.7s ease forwards;
@@ -140,12 +161,12 @@ nav {
 }
 
 .hero-body {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 300;
   color: var(--text-muted);
   max-width: 460px;
-  line-height: 1.7;
-  margin-bottom: 44px;
+  line-height: 1.65;
+  margin-bottom: 28px;
   opacity: 0;
   animation: fadeUp 0.7s ease forwards;
   animation-delay: 0.45s;
@@ -154,6 +175,40 @@ nav {
 .hero-body strong {
   color: var(--text);
   font-weight: 500;
+}
+
+/* instacart badge */
+.instacart-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--instacart-green);
+  background: rgba(0, 134, 31, 0.08);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 0.5s;
+}
+/* TODO: confirm Instacart partnership/branding rights before using official logo */
+
+.instacart-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* social proof */
+.social-proof {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+  animation-delay: 0.52s;
 }
 
 /* email form */
@@ -262,7 +317,7 @@ nav {
   background: var(--bg-card);
   border-radius: 16px;
   padding: 28px 24px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(198, 126, 42, 0.2);
 }
 
 .feature-icon {
@@ -287,15 +342,92 @@ nav {
   line-height: 1.7;
 }
 
+.feature-instacart {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--instacart-green);
+  background: rgba(0, 134, 31, 0.08);
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
 /* footer */
 footer {
   border-top: 1px solid var(--border);
-  padding: 28px 40px;
+  padding: 40px 40px 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-top {
+  max-width: 420px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.footer-cta-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.footer-form-row {
+  display: flex;
+  gap: 8px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 6px 6px 6px 16px;
+  box-shadow: 0 2px 20px rgba(28,15,0,0.06);
+}
+
+.footer-form-row input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.footer-form-row input::placeholder { color: var(--text-muted); opacity: 0.6; }
+
+.footer-form-row button {
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.footer-form-row button:hover { background: #3D2010; }
+.footer-form-row button:active { transform: scale(0.98); }
+
+.footer-success-msg {
+  display: none;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+  padding: 14px;
+  text-align: center;
+}
+
+.footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  z-index: 1;
 }
 
 .footer-wordmark {
@@ -328,6 +460,23 @@ footer {
   opacity: 0.8;
 }
 
+.footer-social {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 16px;
+  opacity: 0.6;
+}
+
+.footer-social a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  text-decoration: underline;
+}
+
 /* animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
@@ -337,12 +486,17 @@ footer {
 /* mobile */
 @media (max-width: 640px) {
   nav { padding: 16px 20px; }
-  .hero { padding: 100px 20px 60px; }
-  .features-grid { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 8px; text-align: center; }
+  .hero { padding: 80px 20px 36px; }
+  .hero-headline { font-size: clamp(36px, 10vw, 48px); }
+  .hero-eyebrow { letter-spacing: 0.08em; }
+  .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .footer-form-row { flex-direction: column; padding: 10px; border-radius: 16px; }
+  .footer-form-row input { padding: 6px 8px; }
+  .footer-form-row button { width: 100%; padding: 12px; border-radius: 10px; min-height: 52px; }
   .form-row { flex-direction: column; padding: 10px; border-radius: 16px; }
   .form-row input { padding: 6px 8px; }
-  .form-row button { width: 100%; padding: 12px; border-radius: 10px; }
+  .form-row button { width: 100%; padding: 12px; border-radius: 10px; min-height: 52px; }
 }
 </style>
 </head>
@@ -353,7 +507,7 @@ footer {
     Saman
     <span>سامان</span>
   </div>
-  <div class="nav-badge">Coming soon for iPhone</div>
+  <a class="nav-badge" href="#email-input">Get early access &rarr;</a>
 </nav>
 
 <section class="hero">
@@ -369,7 +523,15 @@ footer {
     <strong>Instacart</strong> — from whichever store has the best price.
   </p>
 
+  <!-- TODO: confirm Instacart partnership/branding rights before using official logo -->
+  <span class="instacart-badge">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>
+    Works with Instacart
+  </span>
+
   <div class="form-wrap">
+    <!-- TODO: swap with "Join X people already on the list" when count is available -->
+    <p class="social-proof">Be first in line. Early access opens at launch.</p>
     <div class="form-row" id="form-row">
       <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" />
       <button onclick="handleSubmit()">Get early access</button>
@@ -404,6 +566,7 @@ footer {
         <span class="feature-icon">→</span>
         <div class="feature-title">One tap to reorder</div>
         <p class="feature-desc">Your low-stock list goes straight to Instacart. Saman compares prices across Publix, Walmart, Costco, and Target so you always buy it cheaper.</p>
+        <span class="feature-instacart">via Instacart</span>
       </div>
 
     </div>
@@ -411,12 +574,28 @@ footer {
 </section>
 
 <footer>
-  <div class="footer-wordmark">
-    Saman
-    <span class="footer-wordmark-urdu">سامان</span>
+  <div class="footer-top">
+    <p class="footer-cta-label">Still interested? Get early access.</p>
+    <div class="footer-form-row" id="footer-form-row">
+      <input type="email" id="footer-email-input" placeholder="your@email.com" autocomplete="email" />
+      <button onclick="handleFooterSubmit()">Get early access</button>
+    </div>
+    <div class="footer-success-msg" id="footer-success-msg">
+      You're on the list. We'll reach out before launch.
+    </div>
   </div>
-  <div class="footer-urdu">provisions · pantry tracker for iPhone</div>
-  <div class="footer-note">samanpantry.com · © 2025</div>
+  <div class="footer-bottom">
+    <div class="footer-wordmark">
+      Saman
+      <span class="footer-wordmark-urdu">سامان</span>
+    </div>
+    <div class="footer-urdu">provisions · pantry tracker for iPhone</div>
+    <div class="footer-note">samanpantry.com · &copy; 2025</div>
+  </div>
+  <!-- TODO: add social links here -->
+  <div class="footer-social">
+    Follow along: <a href="#" aria-label="Twitter/X">Twitter/X</a> · <a href="#" aria-label="Instagram">Instagram</a>
+  </div>
 </footer>
 
 <script>
@@ -436,8 +615,28 @@ function handleSubmit() {
   });
 }
 
+function handleFooterSubmit() {
+  const email = document.getElementById('footer-email-input').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('footer-email-input').style.outline = '2px solid #C67E2A';
+    setTimeout(() => document.getElementById('footer-email-input').style.outline = '', 1200);
+    return;
+  }
+  document.getElementById('footer-form-row').style.display = 'none';
+  document.getElementById('footer-success-msg').style.display = 'block';
+  fetch('https://formspree.io/f/xlgoowzq', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  });
+}
+
 document.getElementById('email-input').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') handleSubmit();
+});
+
+document.getElementById('footer-email-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleFooterSubmit();
 });
 </script>
 
