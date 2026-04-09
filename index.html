@@ -365,21 +365,15 @@ footer {
 }
 
 .footer-top {
+  max-width: 420px;
+  margin: 0 auto 32px;
   text-align: center;
-  padding-bottom: 24px;
 }
 
-.footer-cta-link {
-  font-size: 13px;
-  color: var(--accent);
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  transition: opacity 0.2s;
-}
-
-.footer-cta-link:hover {
-  opacity: 0.7;
+.footer-cta-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
 }
 
 .footer-bottom {
@@ -513,7 +507,12 @@ footer {
 
 <footer>
   <div class="footer-top">
-    <a href="#email-input" class="footer-cta-link">Get early access &rarr;</a>
+    <p class="footer-cta-label">Still interested? Get early access.</p>
+    <div id="footer-form-row" class="form-row">
+      <input type="email" id="footer-email-input" placeholder="your@email.com" autocomplete="email" />
+      <button onclick="handleFooterSubmit()">Get early access</button>
+    </div>
+    <div id="footer-success-msg" style="display:none;">You're on the list. We'll reach out before launch.</div>
   </div>
   <div class="footer-bottom">
     <div class="footer-wordmark">
@@ -543,8 +542,28 @@ function handleSubmit() {
   });
 }
 
+function handleFooterSubmit() {
+  const email = document.getElementById('footer-email-input').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('footer-email-input').style.outline = '2px solid #C67E2A';
+    setTimeout(() => document.getElementById('footer-email-input').style.outline = '', 1200);
+    return;
+  }
+  document.getElementById('footer-form-row').style.display = 'none';
+  document.getElementById('footer-success-msg').style.display = 'block';
+  fetch('https://formspree.io/f/xlgoowzq', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  });
+}
+
 document.getElementById('email-input').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') handleSubmit();
+});
+
+document.getElementById('footer-email-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleFooterSubmit();
 });
 </script>
 
