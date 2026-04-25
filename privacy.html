@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How Saman Pantry handles your data — what we collect, how we use it, and your rights.">
+<!-- Open Graph -->
+<meta property="og:title" content="Privacy Policy — Saman Pantry">
+<meta property="og:description" content="How Saman Pantry handles your data — what we collect, how we use it, and your rights.">
+<meta property="og:url" content="https://www.samanpantry.com/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.samanpantry.com/og-image.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy — Saman Pantry">
+<meta name="twitter:description" content="How Saman Pantry handles your data — what we collect, how we use it, and your rights.">
+<meta name="twitter:image" content="https://www.samanpantry.com/og-image.png">
+<title>Privacy Policy — Saman Pantry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF6EF;
+  --bg-card: #F3ECE0;
+  --text: #1C0F00;
+  --text-muted: #7A6352;
+  --accent: #C67E2A;
+  --accent-light: #F5E6CC;
+  --border: rgba(28,15,0,0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--bg); scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* nav */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: linear-gradient(to bottom, var(--bg) 60%, transparent);
+}
+
+.wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.wordmark span {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--accent);
+  display: block;
+  margin-top: 1px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.nav-badge {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-badge:hover { background: #EEDCBF; }
+
+/* privacy content */
+.privacy-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 24px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.privacy-wrap h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.privacy-wrap .last-updated {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-bottom: 48px;
+  display: block;
+}
+
+.privacy-wrap h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.privacy-wrap p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.privacy-wrap p strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.privacy-wrap ul {
+  margin: 0 0 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.privacy-wrap ul li {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.75;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.privacy-wrap ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.privacy-wrap ul li strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.privacy-wrap a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: opacity 0.15s;
+}
+
+.privacy-wrap a:hover { opacity: 0.75; }
+
+.privacy-intro {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: var(--text) !important;
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+  margin-bottom: 40px !important;
+}
+
+.section-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--border);
+  margin: 0 0 48px 0;
+}
+
+/* footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 40px 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.footer-wordmark-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--accent);
+  display: block;
+  margin-top: 2px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-links a {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+.footer-links a:hover { opacity: 1; }
+
+.footer-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  nav { padding: 16px 20px; }
+  .privacy-wrap { padding: 100px 20px 80px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="wordmark" href="/">
+    Saman
+    <span>سامان</span>
+  </a>
+  <a class="nav-badge" href="/#email-input">Get early access &rarr;</a>
+</nav>
+
+<main class="privacy-wrap">
+  <h1>Privacy Policy</h1>
+  <span class="last-updated">Last updated: April 25, 2026</span>
+
+  <div class="section-rule"></div>
+
+  <p class="privacy-intro">Saman Pantry is built and operated by Saman Technologies LLC. This page explains what data we collect, why we collect it, and what your rights are. If something is unclear, email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a>.</p>
+
+  <h2>What we collect</h2>
+  <p>We collect the minimum needed to run the app.</p>
+
+  <p><strong>Account information</strong></p>
+  <ul>
+    <li>Email address</li>
+    <li>Password (stored hashed — we cannot read it)</li>
+  </ul>
+
+  <p><strong>Your pantry data</strong></p>
+  <ul>
+    <li>Items, quantities, expiration dates, and notes you add</li>
+    <li>Pantries, stores, and shopping lists you create</li>
+  </ul>
+
+  <p>This is your data. It belongs to you.</p>
+
+  <p><strong>Standard technical information</strong></p>
+  <ul>
+    <li>App crashes and errors, used to fix bugs</li>
+    <li>Basic device type and iOS version, provided automatically by Apple</li>
+  </ul>
+
+  <p>We do not collect your location, contacts, photos, or biometric data. We do not use third-party analytics or advertising trackers.</p>
+
+  <h2>How we use your data</h2>
+  <ul>
+    <li>To run the app and sync your pantry across your devices</li>
+    <li>To sign you in</li>
+    <li>To respond to support questions</li>
+    <li>To fix crashes and bugs</li>
+  </ul>
+
+  <p>We do not sell your data. We do not share it with advertisers. We do not use it to train AI models.</p>
+
+  <h2>Who we share data with</h2>
+  <p>We use a small number of trusted services to operate the app:</p>
+  <ul>
+    <li><strong>Supabase</strong> — secure database and authentication. Your account and pantry data are stored on Supabase infrastructure. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's privacy policy</a>.</li>
+    <li><strong>Apple</strong> — handles app distribution and standard iOS diagnostics. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.</li>
+  </ul>
+
+  <p>These are processors acting on our behalf. They do not have rights to use your data for their own purposes. We do not transfer or sell your data to anyone else.</p>
+
+  <h2>Your rights</h2>
+  <p>You can:</p>
+  <ul>
+    <li><strong>Access your data</strong> — everything in the app is your data, viewable anytime</li>
+    <li><strong>Export your data</strong> — email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a> to request an export</li>
+    <li><strong>Delete your account</strong> — email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a>. Account deletion removes all your pantry data within 30 days.</li>
+    <li><strong>Correct your data</strong> — edit anything inside the app</li>
+  </ul>
+
+  <p>If you live in the EU, UK, or California, you have additional rights under GDPR or CCPA, including the right to object to processing, request a copy of your data, and lodge a complaint with your local data authority.</p>
+
+  <h2>How we protect your data</h2>
+  <ul>
+    <li>Passwords are hashed and never stored in readable form</li>
+    <li>Data is encrypted in transit using HTTPS</li>
+    <li>Database access is restricted by Row Level Security — you can only see your own data</li>
+    <li>We do not share account credentials with anyone</li>
+  </ul>
+
+  <p>No system is perfectly secure, but we take this seriously. If we detect a breach affecting your data, we will notify you.</p>
+
+  <h2>Children</h2>
+  <p>Saman Pantry is not directed at children under 13, and we do not knowingly collect data from anyone under 13. If you believe a child has created an account, email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a> and we will delete it.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If we make material changes, we will update this page and change the "Last updated" date. For significant changes, we will notify you in the app.</p>
+
+  <h2>Contact</h2>
+  <p>Saman Technologies LLC<br>
+  Email: <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a></p>
+</main>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-wordmark">
+      Saman
+      <span class="footer-wordmark-urdu">سامان</span>
+    </div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="mailto:haaris@samantechnologies.com">Contact</a>
+    </div>
+    <div class="footer-note">samanpantry.com &middot; &copy; 2025</div>
+  </div>
+</footer>
+
+</body>
+</html>
