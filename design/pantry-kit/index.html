@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pantry — Kitchen Ledger · Samaan</title>
+  <link rel="stylesheet" href="../../colors_and_type.css"/>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #E8E0D4;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      padding: 32px 16px;
+    }
+
+    /* ── iOS Frame ─────────────────────────── */
+    .frame {
+      width: 393px;
+      height: 852px;
+      background: var(--doodh);
+      border-radius: 54px;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.08),
+        0 32px 80px rgba(0,0,0,0.28),
+        0 8px 24px rgba(0,0,0,0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Dynamic Island */
+    .frame::before {
+      content: '';
+      position: absolute;
+      top: 14px; left: 50%;
+      transform: translateX(-50%);
+      width: 126px; height: 37px;
+      background: #0D1117;
+      border-radius: 20px;
+      z-index: 100;
+    }
+
+    /* Home indicator */
+    .frame::after {
+      content: '';
+      position: absolute;
+      bottom: 8px; left: 50%;
+      transform: translateX(-50%);
+      width: 134px; height: 5px;
+      background: var(--siyahi);
+      opacity: 0.18;
+      border-radius: 3px;
+      z-index: 100;
+    }
+
+    .screen {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding-top: 60px; /* clear dynamic island */
+      padding-bottom: 28px;
+    }
+
+    /* ── Typography ────────────────────────── */
+    .t-display    { font-family: var(--font-display); font-weight: 600; }
+    .t-body       { font-family: var(--font-body); }
+    .t-italic     { font-family: var(--font-body); font-style: italic; }
+    .t-mono       { font-family: var(--font-mono); }
+    .t-muted      { color: var(--muted); }
+
+    /* ── Stock dots ────────────────────────── */
+    .dot-saag     { color: var(--saag); }
+    .dot-brass    { color: var(--brass); }
+    .dot-anaar    { color: var(--anaar); }
+    .dot-out      { color: var(--muted); }
+
+    /* ── Scrollable content ────────────────── */
+    .scroll { overflow-y: auto; flex: 1; }
+    .scroll::-webkit-scrollbar { display: none; }
+
+    /* ── Cards ─────────────────────────────── */
+    .card {
+      background: var(--banaras);
+      border: 1px solid var(--atta);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    /* ── Hairline ───────────────────────────── */
+    .rule { border: none; border-top: 1px solid var(--atta); }
+
+    /* ── Button ─────────────────────────────── */
+    .btn-primary {
+      background: var(--saag);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--saag);
+      font-family: var(--font-display);
+      font-size: 15px;
+      border: 1px solid var(--atta);
+      border-radius: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+    }
+
+    /* ── Tab bar ─────────────────────────────── */
+    .tabbar {
+      display: flex;
+      border-top: 1px solid var(--atta);
+      background: var(--doodh);
+      padding: 10px 0 4px;
+      flex-shrink: 0;
+    }
+    .tab {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+      padding: 2px 0;
+    }
+    .tab-icon { font-size: 20px; line-height: 1; }
+    .tab-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; }
+    .tab.active .tab-label { color: var(--saag); }
+    .tab.active .tab-icon  { color: var(--saag); }
+    .tab:not(.active) .tab-label { color: var(--muted); }
+    .tab:not(.active) .tab-icon  { color: var(--muted); }
+
+    /* ── Stepper ─────────────────────────────── */
+    .stepper {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .stepper-btn {
+      width: 32px; height: 32px;
+      border: 1px solid var(--atta);
+      border-radius: 8px;
+      background: var(--doodh);
+      color: var(--siyahi);
+      font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+
+    /* ── Crossed item (shopping list) ────────── */
+    .crossed {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState } = React;
+
+/* ── Design tokens ──────────────────────────── */
+const C = {
+  doodh:   '#FAF4E5',
+  banaras: '#F2E6D0',
+  atta:    '#E7DABE',
+  siyahi:  '#1A1410',
+  muted:   '#9A8C7C',
+  saag:    '#3F6B47',
+  saagLt:  '#D4E4D8',
+  brass:   '#A87A2F',
+  anaar:   '#9C2E2E',
+};
+
+/* ── Stock component ───────────────────────── */
+function Stock({ status }) {
+  const map = {
+    in:       { glyph: '●', cls: 'dot-saag',  label: 'in stock'  },
+    low:      { glyph: '◐', cls: 'dot-brass', label: 'low'       },
+    expiring: { glyph: '◑', cls: 'dot-anaar', label: 'expiring'  },
+    out:      { glyph: '○', cls: 'dot-out',   label: 'out'       },
+  };
+  const s = map[status] || map.out;
+  return <span className={s.cls} style={{ fontSize: 11 }}>{s.glyph}</span>;
+}
+
+/* ── PantryMark ────────────────────────────── */
+function PantryMark({ size = 56 }) {
+  return (
+    <div style={{
+      width: size, height: size,
+      background: C.saag,
+      borderRadius: size * 0.24,
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      <span style={{
+        fontFamily: 'Cormorant Garamond, Georgia, serif',
+        fontStyle: 'italic',
+        fontWeight: 600,
+        fontSize: size * 0.58,
+        color: '#fff',
+        lineHeight: 1,
+        marginTop: size * 0.04,
+      }}>t</span>
+    </div>
+  );
+}
+
+/* ── PanEyebrow ────────────────────────────── */
+function PanEyebrow({ children }) {
+  return (
+    <div style={{
+      fontFamily: 'IBM Plex Mono, monospace',
+      fontSize: 10,
+      letterSpacing: '0.1em',
+      color: C.muted,
+      textTransform: 'uppercase',
+      marginBottom: 6,
+    }}>
+      {children}
+    </div>
+  );
+}
+
+/* ── Data ───────────────────────────────────── */
+const SHELVES = [
+  {
+    name: 'Grains & Dals',
+    items: [
+      { id: 1, name: 'Basmati Rice',    note: 'aged, long grain',      qty: '2 kg',   status: 'in'       },
+      { id: 2, name: 'Masoor Dal',      note: 'red lentils',           qty: '200 g',  status: 'low'      },
+      { id: 3, name: 'Chana Dal',       note: 'split chickpea',        qty: '1 kg',   status: 'in'       },
+      { id: 4, name: 'Atta',            note: 'whole wheat flour',     qty: '500 g',  status: 'expiring' },
+    ],
+  },
+  {
+    name: 'Spices & Masala',
+    items: [
+      { id: 5, name: 'Haldi',           note: 'turmeric, ground',      qty: '—',      status: 'in'       },
+      { id: 6, name: 'Zeera',           note: 'cumin, whole',          qty: '—',      status: 'low'      },
+      { id: 7, name: 'Dhaniya Powder',  note: 'coriander, ground',     qty: '—',      status: 'in'       },
+      { id: 8, name: 'Garam Masala',    note: 'mixed spice blend',     qty: '—',      status: 'expiring' },
+      { id: 9, name: 'Lal Mirch',       note: 'red chili, ground',     qty: '—',      status: 'in'       },
+    ],
+  },
+  {
+    name: 'Fresh & Cold',
+    items: [
+      { id: 10, name: 'Adrak',          note: 'fresh ginger',          qty: '—',      status: 'out'      },
+      { id: 11, name: 'Dahi',           note: 'full-fat yogurt',       qty: '400 g',  status: 'expiring' },
+      { id: 12, name: 'Pyaaz',          note: 'yellow onions',         qty: '4',      status: 'in'       },
+    ],
+  },
+];
+
+/* ── Screen: Welcome ─────────────────────────── */
+function Welcome({ onEnter }) {
+  return (
+    <div className="screen" style={{
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 0,
+      padding: '60px 32px 28px',
+    }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 24 }}>
+        <PantryMark size={72} />
+        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <div className="t-display" style={{ fontSize: 48, color: C.siyahi, lineHeight: 1 }}>Pantry</div>
+          <div className="t-italic" style={{ fontSize: 20, color: C.siyahi, lineHeight: 1.3 }}>
+            A kitchen ledger.
+          </div>
+          <div className="t-body" style={{ fontSize: 14, color: C.muted, marginTop: 2 }}>
+            For the desi household.
+          </div>
+        </div>
+        <div style={{ marginTop: 8, fontFamily: 'Cormorant Garamond', fontStyle: 'italic', fontSize: 22, color: C.saag }}>
+          سامان
+        </div>
+      </div>
+      <button className="btn-primary" onClick={onEnter}>
+        Open the pantry
+      </button>
+    </div>
+  );
+}
+
+/* ── Screen: ShelfList ────────────────────────── */
+function ShelfList({ onItem, onNav }) {
+  return (
+    <div className="screen">
+      {/* Header */}
+      <div style={{ padding: '4px 20px 12px', flexShrink: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+          <div>
+            <div className="t-display" style={{ fontSize: 28, color: C.siyahi, lineHeight: 1 }}>Pantry</div>
+            <div className="t-mono" style={{ fontSize: 11, color: C.muted, marginTop: 2, letterSpacing: '0.04em' }}>
+              12 provisions
+            </div>
+          </div>
+          <div style={{ fontFamily: 'Cormorant Garamond', fontStyle: 'italic', fontSize: 20, color: C.saag }}>
+            سامان
+          </div>
+        </div>
+      </div>
+      <hr className="rule" style={{ marginBottom: 4 }} />
+
+      {/* Shelves */}
+      <div className="scroll" style={{ padding: '8px 20px' }}>
+        {SHELVES.map(shelf => (
+          <div key={shelf.name} style={{ marginBottom: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <div className="t-display" style={{ fontSize: 13, color: C.muted, letterSpacing: '0.02em' }}>
+                {shelf.name}
+              </div>
+              <div style={{ flex: 1, borderTop: `1px solid ${C.atta}` }}/>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+              {shelf.items.map(item => (
+                <div
+                  key={item.id}
+                  onClick={() => onItem(item)}
+                  style={{
+                    display: 'flex', alignItems: 'baseline', gap: 8,
+                    padding: '7px 10px',
+                    borderRadius: 8,
+                    cursor: 'pointer',
+                    transition: 'background 0.12s',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.background = C.banaras}
+                  onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                >
+                  <Stock status={item.status} />
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <span className="t-display" style={{ fontSize: 16, color: C.siyahi }}>
+                      {item.name}
+                    </span>
+                    <span className="t-italic" style={{ fontSize: 13, color: C.muted, marginLeft: 6 }}>
+                      {item.note}
+                    </span>
+                  </div>
+                  <span className="t-mono" style={{ fontSize: 13, color: item.status === 'out' ? C.muted : C.siyahi, flexShrink: 0 }}>
+                    {item.qty}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+        <div style={{ height: 16 }} />
+      </div>
+
+      {/* Tab bar */}
+      <TabBar active="shelf" onNav={onNav} />
+    </div>
+  );
+}
+
+/* ── Screen: ItemDetail ────────────────────────── */
+function ItemDetail({ item, onBack, onNav }) {
+  const [qty, setQty] = useState(item.id === 1 ? 2 : 1);
+  const statusLabel = { in: 'In stock', low: 'Running low', expiring: 'Use soon', out: 'Out' };
+  const statusColor = { in: C.saag, low: C.brass, expiring: C.anaar, out: C.muted };
+
+  return (
+    <div className="screen">
+      {/* Nav */}
+      <div style={{ padding: '4px 20px 12px', display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
+        <button onClick={onBack} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>
+          <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: C.saag, letterSpacing: '0.06em' }}>← BACK</span>
+        </button>
+      </div>
+
+      <div className="scroll" style={{ padding: '0 20px' }}>
+        {/* Item header */}
+        <div style={{ marginBottom: 20 }}>
+          <div className="t-display" style={{ fontSize: 36, color: C.siyahi, lineHeight: 1.1 }}>{item.name}</div>
+          <div className="t-italic" style={{ fontSize: 16, color: C.muted, marginTop: 4 }}>{item.note}</div>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            marginTop: 10, padding: '4px 10px',
+            background: statusColor[item.status] + '18',
+            borderRadius: 6,
+          }}>
+            <Stock status={item.status} />
+            <span className="t-mono" style={{ fontSize: 11, color: statusColor[item.status], letterSpacing: '0.08em' }}>
+              {statusLabel[item.status]}
+            </span>
+          </div>
+        </div>
+
+        <hr className="rule" style={{ marginBottom: 20 }} />
+
+        {/* On hand stepper */}
+        <div className="card" style={{ marginBottom: 12 }}>
+          <PanEyebrow>On hand</PanEyebrow>
+          <div className="stepper">
+            <button className="stepper-btn" onClick={() => setQty(q => Math.max(0, q - 1))}>−</button>
+            <span className="t-mono" style={{ fontSize: 28, fontWeight: 500, color: C.siyahi, flex: 1, textAlign: 'center' }}>
+              {qty} {item.id === 1 ? 'kg' : item.id === 2 ? 'g' : 'unit'}
+            </span>
+            <button className="stepper-btn" onClick={() => setQty(q => q + 1)}>+</button>
+          </div>
+        </div>
+
+        {/* Meta rows */}
+        {[
+          { label: 'Par level',       value: item.id === 1 ? '1 kg' : item.id === 2 ? '500 g' : '1 unit' },
+          { label: 'Last restocked',  value: item.id === 1 ? '2 weeks ago' : item.id === 8 ? '3 months ago' : '1 week ago' },
+          { label: 'Source',          value: item.id <= 4 ? 'Patel Brothers' : item.id <= 9 ? 'India Bazaar' : 'Costco' },
+          { label: 'Shelf life',      value: item.id <= 4 ? '12 months' : item.id >= 10 ? '1 week' : '18 months' },
+        ].map(row => (
+          <div key={row.label} style={{
+            display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+            padding: '10px 0', borderBottom: `1px solid ${C.atta}`,
+          }}>
+            <span className="t-body t-muted" style={{ fontSize: 14 }}>{row.label}</span>
+            <span className="t-mono" style={{ fontSize: 14, color: C.siyahi }}>{row.value}</span>
+          </div>
+        ))}
+
+        <div style={{ marginTop: 20 }}>
+          <button className="btn-primary">Mark restocked</button>
+        </div>
+        <div style={{ height: 16 }} />
+      </div>
+
+      <TabBar active="shelf" onNav={onNav} />
+    </div>
+  );
+}
+
+/* ── Screen: ShoppingList ─────────────────────── */
+function ShoppingList({ onNav }) {
+  const allItems = SHELVES.flatMap(s => s.items).filter(i => i.status === 'out' || i.status === 'low');
+  const [crossed, setCrossed] = useState(new Set());
+
+  const toggle = id => setCrossed(prev => {
+    const next = new Set(prev);
+    next.has(id) ? next.delete(id) : next.add(id);
+    return next;
+  });
+
+  const pending   = allItems.filter(i => !crossed.has(i.id));
+  const done      = allItems.filter(i =>  crossed.has(i.id));
+
+  return (
+    <div className="screen">
+      <div style={{ padding: '4px 20px 12px', flexShrink: 0 }}>
+        <div className="t-display" style={{ fontSize: 28, color: C.siyahi, lineHeight: 1 }}>To buy</div>
+        <div className="t-mono" style={{ fontSize: 11, color: C.muted, marginTop: 2, letterSpacing: '0.04em' }}>
+          {pending.length} item{pending.length !== 1 ? 's' : ''} left
+        </div>
+      </div>
+      <hr className="rule" style={{ marginBottom: 4 }} />
+
+      <div className="scroll" style={{ padding: '8px 20px' }}>
+        {pending.map(item => (
+          <ListRow key={item.id} item={item} crossed={false} onToggle={() => toggle(item.id)} />
+        ))}
+
+        {done.length > 0 && (
+          <>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, margin: '16px 0 8px' }}>
+              <div className="t-body t-muted" style={{ fontSize: 12, fontStyle: 'italic' }}>in cart</div>
+              <div style={{ flex: 1, borderTop: `1px solid ${C.atta}` }}/>
+            </div>
+            {done.map(item => (
+              <ListRow key={item.id} item={item} crossed={true} onToggle={() => toggle(item.id)} />
+            ))}
+          </>
+        )}
+        <div style={{ height: 16 }} />
+      </div>
+
+      <TabBar active="list" onNav={onNav} />
+    </div>
+  );
+}
+
+function ListRow({ item, crossed, onToggle }) {
+  return (
+    <div
+      onClick={onToggle}
+      style={{
+        display: 'flex', alignItems: 'center', gap: 12,
+        padding: '10px 10px',
+        borderRadius: 8,
+        cursor: 'pointer',
+        transition: 'background 0.12s',
+        opacity: crossed ? 0.5 : 1,
+      }}
+      onMouseEnter={e => e.currentTarget.style.background = '#F2E6D0'}
+      onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+    >
+      {/* Cross / circle mark */}
+      <span style={{
+        fontFamily: 'IBM Plex Mono',
+        fontSize: 16,
+        color: crossed ? C.muted : C.saag,
+        width: 20, textAlign: 'center',
+        flexShrink: 0,
+      }}>
+        {crossed ? '×' : '○'}
+      </span>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+          <span
+            className="t-display"
+            style={{
+              fontSize: 16,
+              color: crossed ? C.muted : C.siyahi,
+              textDecoration: crossed ? 'line-through' : 'none',
+            }}
+          >
+            {item.name}
+          </span>
+          <span className="t-italic" style={{ fontSize: 13, color: C.muted }}>
+            {item.note}
+          </span>
+        </div>
+        <div className="t-mono" style={{ fontSize: 11, color: C.muted, marginTop: 2 }}>
+          {item.status === 'low' ? 'running low' : 'out of stock'}
+        </div>
+      </div>
+      {!crossed && (
+        <Stock status={item.status} />
+      )}
+    </div>
+  );
+}
+
+/* ── Tab Bar ─────────────────────────────────── */
+function TabBar({ active, onNav }) {
+  const tabs = [
+    { id: 'shelf', label: 'pantry', icon: '⊞' },
+    { id: 'list',  label: 'to buy', icon: '≡'  },
+  ];
+  return (
+    <div className="tabbar">
+      {tabs.map(t => (
+        <div key={t.id} className={`tab ${active === t.id ? 'active' : ''}`} onClick={() => onNav(t.id)}>
+          <span className="tab-icon">{t.icon}</span>
+          <span className="tab-label">{t.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ── App ─────────────────────────────────────── */
+function App() {
+  const [screen, setScreen] = useState('welcome');
+  const [activeItem, setActiveItem] = useState(null);
+
+  const nav = id => {
+    if (id === 'shelf') setScreen('shelf');
+    if (id === 'list')  setScreen('list');
+  };
+
+  return (
+    <div className="frame">
+      {screen === 'welcome' && (
+        <Welcome onEnter={() => setScreen('shelf')} />
+      )}
+      {screen === 'shelf' && (
+        <ShelfList
+          onItem={item => { setActiveItem(item); setScreen('detail'); }}
+          onNav={nav}
+        />
+      )}
+      {screen === 'detail' && activeItem && (
+        <ItemDetail
+          item={activeItem}
+          onBack={() => setScreen('shelf')}
+          onNav={nav}
+        />
+      )}
+      {screen === 'list' && (
+        <ShoppingList onNav={nav} />
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+Saman/Saman.xcodeproj/project.xcworkspace/xcuserdata/
+Saman/Saman.xcodeproj/xcuserdata/
+Saman/Saman.xcworkspace/xcuserdata/
+Saman/*.xcodeproj/xcuserdata/
+Saman/*.xcworkspace/xcuserdata/
+Saman/DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+Saman/.build/
+Saman/Packages/
+Saman/*.resolved.backup
+
+# CocoaPods (if ever added)
+Pods/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Node (pantry kit)
+node_modules/
+
+# Env
+.env
+.env.local
