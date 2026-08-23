@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="How Saman Pantry handles your data — what we collect, how we use it, and your rights.">
+<meta name="description" content="How Samaan Pantry handles your data — what we collect, how we use it, and your rights.">
 <!-- Open Graph -->
-<meta property="og:title" content="Privacy Policy — Saman Pantry">
-<meta property="og:description" content="How Saman Pantry handles your data — what we collect, how we use it, and your rights.">
-<meta property="og:url" content="https://www.samanpantry.com/privacy.html">
+<meta property="og:title" content="Privacy Policy — Samaan Pantry">
+<meta property="og:description" content="How Samaan Pantry handles your data — what we collect, how we use it, and your rights.">
+<meta property="og:url" content="https://www.samanpantry.com/privacy">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.samanpantry.com/og-image.png">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Privacy Policy — Saman Pantry">
-<meta name="twitter:description" content="How Saman Pantry handles your data — what we collect, how we use it, and your rights.">
+<meta name="twitter:title" content="Privacy Policy — Samaan Pantry">
+<meta name="twitter:description" content="How Samaan Pantry handles your data — what we collect, how we use it, and your rights.">
 <meta name="twitter:image" content="https://www.samanpantry.com/og-image.png">
-<title>Privacy Policy — Saman Pantry</title>
+<title>Privacy Policy — Samaan Pantry</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -270,7 +270,7 @@ footer {
 
 <nav>
   <a class="wordmark" href="/">
-    Saman
+    Samaan
     <span>سامان</span>
   </a>
   <a class="nav-badge" href="/#email-input">Get early access &rarr;</a>
@@ -278,11 +278,11 @@ footer {
 
 <main class="privacy-wrap">
   <h1>Privacy Policy</h1>
-  <span class="last-updated">Last updated: April 25, 2026</span>
+  <span class="last-updated">Last updated: August 23, 2026</span>
 
   <div class="section-rule"></div>
 
-  <p class="privacy-intro">Saman Pantry is built and operated by Saman Technologies LLC. This page explains what data we collect, why we collect it, and what your rights are. If something is unclear, email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a>.</p>
+  <p class="privacy-intro">Samaan Pantry is built and operated by Saman Technologies LLC. This page explains what data we collect, why we collect it, and what your rights are. If something is unclear, email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a>.</p>
 
   <h2>What we collect</h2>
   <p>We collect the minimum needed to run the app.</p>
@@ -297,6 +297,7 @@ footer {
   <ul>
     <li>Items, quantities, expiration dates, and notes you add</li>
     <li>Pantries, stores, and shopping lists you create</li>
+    <li>Recipes you capture, including transcripts sent to extract ingredients</li>
   </ul>
 
   <p>This is your data. It belongs to you.</p>
@@ -307,23 +308,27 @@ footer {
     <li>Basic device type and iOS version, provided automatically by Apple</li>
   </ul>
 
-  <p>We do not collect your location, contacts, photos, or biometric data. We do not use third-party analytics or advertising trackers.</p>
+  <p>We do not collect your location, contacts, or biometric data. Camera access, if you grant it, is used only to scan a barcode or capture a recipe. We do not use third-party advertising trackers.</p>
 
   <h2>How we use your data</h2>
   <ul>
     <li>To run the app and sync your pantry across your devices</li>
     <li>To sign you in</li>
+    <li>To extract ingredients from a recipe you capture</li>
+    <li>To process a paid subscription if you choose one</li>
     <li>To respond to support questions</li>
     <li>To fix crashes and bugs</li>
   </ul>
 
-  <p>We do not sell your data. We do not share it with advertisers. We do not use it to train AI models.</p>
+  <p>We do not sell your data. We do not share it with advertisers. Recipe text is sent to an AI provider only to extract ingredients for your list. We do not use your pantry to train our own models.</p>
 
   <h2>Who we share data with</h2>
   <p>We use a small number of trusted services to operate the app:</p>
   <ul>
-    <li><strong>Supabase</strong> — secure database and authentication. Your account and pantry data are stored on Supabase infrastructure. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's privacy policy</a>.</li>
-    <li><strong>Apple</strong> — handles app distribution and standard iOS diagnostics. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.</li>
+    <li><strong>Supabase</strong> — database, authentication, and the Edge Functions that proxy recipe extraction and account deletion. Your account and pantry data live here. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's privacy policy</a>.</li>
+    <li><strong>Anthropic</strong> — processes recipe transcripts you capture, only through our <code>extract-recipe</code> Edge Function. The iOS app never talks to Anthropic directly and never ships an API key. See <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic's privacy policy</a>.</li>
+    <li><strong>RevenueCat</strong> — subscription status if you buy Plus. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's privacy policy</a>.</li>
+    <li><strong>Apple</strong> — app distribution, in-app purchases, and standard iOS diagnostics. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.</li>
   </ul>
 
   <p>These are processors acting on our behalf. They do not have rights to use your data for their own purposes. We do not transfer or sell your data to anyone else.</p>
@@ -333,7 +338,7 @@ footer {
   <ul>
     <li><strong>Access your data</strong> — everything in the app is your data, viewable anytime</li>
     <li><strong>Export your data</strong> — email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a> to request an export</li>
-    <li><strong>Delete your account</strong> — email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a>. Account deletion removes all your pantry data within 30 days.</li>
+    <li><strong>Delete your account</strong> — Settings inside the app, Delete Account. That removes your pantry data on our servers. You can also email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a> and we will do it within 30 days.</li>
     <li><strong>Correct your data</strong> — edit anything inside the app</li>
   </ul>
 
@@ -350,7 +355,7 @@ footer {
   <p>No system is perfectly secure, but we take this seriously. If we detect a breach affecting your data, we will notify you.</p>
 
   <h2>Children</h2>
-  <p>Saman Pantry is not directed at children under 13, and we do not knowingly collect data from anyone under 13. If you believe a child has created an account, email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a> and we will delete it.</p>
+  <p>Samaan Pantry is not directed at children under 13, and we do not knowingly collect data from anyone under 13. If you believe a child has created an account, email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a> and we will delete it.</p>
 
   <h2>Changes to this policy</h2>
   <p>If we make material changes, we will update this page and change the "Last updated" date. For significant changes, we will notify you in the app.</p>
@@ -363,14 +368,15 @@ footer {
 <footer>
   <div class="footer-bottom">
     <div class="footer-wordmark">
-      Saman
+      Samaan
       <span class="footer-wordmark-urdu">سامان</span>
     </div>
     <div class="footer-links">
-      <a href="/privacy.html">Privacy</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/support">Support</a>
       <a href="mailto:haaris@samantechnologies.com">Contact</a>
     </div>
-    <div class="footer-note">samanpantry.com &middot; &copy; 2025</div>
+    <div class="footer-note">samanpantry.com &middot; &copy; 2026</div>
   </div>
 </footer>
 
