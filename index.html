@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Saman tracks your pantry, alerts you when you're running low, and restocks from Instacart in one tap. Coming soon for iPhone.">
+<meta name="description" content="Saman is a pantry for one desi kitchen. Flag what's low, shop, mark it bought — the pantry updates. Built for iPhone.">
 <!-- Open Graph -->
 <meta property="og:title" content="Saman — Your kitchen, always stocked">
-<meta property="og:description" content="Saman tracks your pantry, alerts you when you're running low, and restocks from Instacart in one tap. Coming soon for iPhone.">
+<meta property="og:description" content="Saman is a pantry for one desi kitchen. Flag what's low, shop, mark it bought — the pantry updates. Built for iPhone.">
 <meta property="og:url" content="https://www.samanpantry.com/">
 <meta property="og:type" content="website">
 <!-- TODO: create og-image.png at 1200×630px showing the app concept -->
@@ -14,7 +14,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Saman — Your kitchen, always stocked">
-<meta name="twitter:description" content="Saman tracks your pantry, alerts you when you're running low, and restocks from Instacart in one tap. Coming soon for iPhone.">
+<meta name="twitter:description" content="Saman is a pantry for one desi kitchen. Flag what's low, shop, mark it bought — the pantry updates. Built for iPhone.">
 <meta name="twitter:image" content="https://www.samanpantry.com/og-image.png">
 <title>Saman — Your kitchen, always stocked</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,6 @@
   --accent: #C67E2A;
   --accent-light: #F5E6CC;
   --border: rgba(28,15,0,0.1);
-  --instacart-green: #00861F;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -177,29 +176,6 @@ nav {
   font-weight: 500;
 }
 
-/* instacart badge */
-.instacart-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--instacart-green);
-  background: rgba(0, 134, 31, 0.08);
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 24px;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
-  animation-delay: 0.5s;
-}
-/* TODO: confirm Instacart partnership/branding rights before using official logo */
-
-.instacart-badge svg {
-  width: 14px;
-  height: 14px;
-}
-
 /* social proof */
 .social-proof {
   font-size: 0.78rem;
@@ -343,19 +319,6 @@ nav {
   line-height: 1.7;
 }
 
-.feature-instacart {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--instacart-green);
-  background: rgba(0, 134, 31, 0.08);
-  padding: 3px 8px;
-  border-radius: 12px;
-  margin-top: 10px;
-}
-
 /* footer */
 footer {
   border-top: 1px solid var(--border);
@@ -450,16 +413,10 @@ footer {
   <p class="hero-sub-scene">You reach for the lemons. They're gone. You're halfway through dinner.</p>
 
   <p class="hero-body">
-    Saman tracks your pantry, fridge, and freezer. When you're running low,
-    it tells you. When you need to restock, it sends your list straight to
-    <strong>Instacart</strong> — from whichever store has the best price.
+    Saman tracks your pantry, fridge, and freezer. When atta runs low,
+    it goes on the list. When you shop, you mark it bought — and the
+    pantry updates. One loop. One desi kitchen.
   </p>
-
-  <!-- TODO: confirm Instacart partnership/branding rights before using official logo -->
-  <span class="instacart-badge">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>
-    Works with Instacart
-  </span>
 
   <div class="form-wrap">
     <!-- TODO: swap with "Join X people already on the list" when count is available -->
@@ -490,15 +447,14 @@ footer {
 
       <div class="feature-card">
         <span class="feature-icon">◎</span>
-        <div class="feature-title">Know before you run out</div>
-        <p class="feature-desc">Saman watches your quantities and alerts you when something's getting low — before you're mid-recipe reaching for something that isn't there.</p>
+        <div class="feature-title">Flag it before it's gone</div>
+        <p class="feature-desc">When something's running low, you flag it. It lands on the list. No fake "we'll alert you" promise — you stay in the loop, the pantry stays honest.</p>
       </div>
 
       <div class="feature-card">
         <span class="feature-icon">→</span>
-        <div class="feature-title">One tap to reorder</div>
-        <p class="feature-desc">Your low-stock list goes straight to Instacart. Saman compares prices across Publix, Walmart, Costco, and Target so you always buy it cheaper.</p>
-        <span class="feature-instacart">via Instacart</span>
+        <div class="feature-title">Shop, then the pantry updates</div>
+        <p class="feature-desc">You shop wherever you already shop. Mark it bought and Saman restocks the pantry. One loop, not a second grocery app.</p>
       </div>
 
     </div>

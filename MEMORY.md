@@ -122,7 +122,7 @@ Located at: `saman_capture_test/` (harness.py, extraction.py, fixtures.py, gold.
 - RC entitlement: "Saman Pro"
 - RC products: Lifetime (one-time), Yearly (subscription), Monthly (subscription)
 - ASC Subscription Group: "Saman Pro" (setup in progress)
-- Instacart IDP: DEAD — closed, no longer relevant
+- Instacart IDP: DEAD — closed, no longer relevant. Public landing copy must not claim it.
 
 ## Session Log
 | Session | Date | Summary |
