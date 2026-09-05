@@ -17,16 +17,15 @@ Saman Pantry is a pantry and provisions tracking app rooted in Pakistani and Sou
 - **UI:** SwiftUI
 - **Data:** SwiftData (local persistence)
 - **Backend:** Supabase (auth, sync, remote storage)
-- **Monetization:** RevenueCat (pending integration) + Instacart IDP (pending approval)
+- **Monetization:** RevenueCat (Saman Pro). Instacart IDP is dead — do not claim grocery delivery.
 - **Pricing:** Cosmetic-only freemium, $4.99/month or $39.99/year
 
 ---
 
 ## Project state
 
-- App built and QA'd
-- Auth trigger on Supabase creates 3 default pantries on signup
-- Pending before launch: app icon, RevenueCat integration, real device testing, Instacart IDP approval
+- App on TestFlight (1.0 build 47 as of 30 Aug 2026). Do not submit to App Review from this repo.
+- Instacart IDP is closed. Public copy must not claim Instacart, price comparison, or push alerts.
 
 ---
 
@@ -40,7 +39,7 @@ Standard Supabase Auth with real emails (unlike H.I.M.'s synthetic email model).
 
 ### Monetization path
 - **RevenueCat** for subscription management (StoreKit 2 under the hood)
-- **Instacart IDP** for grocery ordering integration — this is the correct path. Direct store logins violate Instacart ToS.
+- **No Instacart.** IDP is closed. The list is the restock; the person shops wherever they already shop.
 
 ---
 
