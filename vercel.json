@@ -3,6 +3,18 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "samaanpantry.com" }],
+      "destination": "https://www.samanpantry.com/",
+      "statusCode": 308
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.samaanpantry.com" }],
+      "destination": "https://www.samanpantry.com/",
+      "statusCode": 308
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "samaanpantry.com" }],
       "destination": "https://www.samanpantry.com/:path*",
