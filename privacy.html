@@ -265,6 +265,8 @@ footer {
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
 </style>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -273,12 +275,12 @@ footer {
     Samaan
     <span>سامان</span>
   </a>
-  <a class="nav-badge" href="/#email-input">Get early access &rarr;</a>
+  <a class="nav-badge" href="https://apps.apple.com/us/app/id6761982454">Get the app &rarr;</a>
 </nav>
 
 <main class="privacy-wrap">
   <h1>Privacy Policy</h1>
-  <span class="last-updated">Last updated: August 23, 2026</span>
+  <span class="last-updated">Last updated: September 25, 2026</span>
 
   <div class="section-rule"></div>
 
@@ -306,9 +308,15 @@ footer {
   <ul>
     <li>App crashes and errors, used to fix bugs</li>
     <li>Basic device type and iOS version, provided automatically by Apple</li>
+    <li>Anonymous usage events (for example: app opened, item added, item marked bought, recipe saved) tagged with a random install ID, the app version, and a timestamp. They are not linked to your email or account, are not used for advertising or tracking, and only tell us which parts of the app are used</li>
   </ul>
 
-  <p>We do not collect your location, contacts, or biometric data. Camera access, if you grant it, is used only to scan a barcode or capture a recipe. We do not use third-party advertising trackers.</p>
+  <p><strong>This website</strong></p>
+  <ul>
+    <li>samanpantry.com uses Vercel Web Analytics, which counts page views without cookies and without identifying you</li>
+  </ul>
+
+  <p>We do not collect your location, contacts, or biometric data. Camera access, if you grant it, is used only to scan a barcode. We do not use third-party advertising trackers.</p>
 
   <h2>How we use your data</h2>
   <ul>
@@ -318,16 +326,17 @@ footer {
     <li>To process a paid subscription if you choose one</li>
     <li>To respond to support questions</li>
     <li>To fix crashes and bugs</li>
+    <li>To understand, in aggregate, which features are used so we can improve them</li>
   </ul>
 
-  <p>We do not sell your data. We do not share it with advertisers. Recipe text is sent to an AI provider only to extract ingredients for your list. We do not use your pantry to train our own models.</p>
+  <p>We do not sell your data. We do not share it with advertisers. Recipe text is sent to an AI provider (Anthropic) only when you ask the app to extract ingredients, and starting with version 1.1 the app asks for your permission before the first extraction. We do not use your pantry to train our own models.</p>
 
   <h2>Who we share data with</h2>
   <p>We use a small number of trusted services to operate the app:</p>
   <ul>
     <li><strong>Supabase</strong> — database, authentication, and the Edge Functions that proxy recipe extraction and account deletion. Your account and pantry data live here. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's privacy policy</a>.</li>
-    <li><strong>Anthropic</strong> — processes recipe transcripts you capture, only through our <code>extract-recipe</code> Edge Function. The iOS app never talks to Anthropic directly and never ships an API key. See <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic's privacy policy</a>.</li>
-    <li><strong>RevenueCat</strong> — subscription status if you buy Plus. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's privacy policy</a>.</li>
+    <li><strong>Anthropic</strong> — processes the recipe text you choose to extract, only through our <code>extract-recipe</code> Edge Function. The iOS app never talks to Anthropic directly and never ships an API key. See <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic's privacy policy</a>.</li>
+    <li><strong>RevenueCat</strong> — subscription status if you buy Saman Pro. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's privacy policy</a>.</li>
     <li><strong>Apple</strong> — app distribution, in-app purchases, and standard iOS diagnostics. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.</li>
   </ul>
 
@@ -338,7 +347,7 @@ footer {
   <ul>
     <li><strong>Access your data</strong> — everything in the app is your data, viewable anytime</li>
     <li><strong>Export your data</strong> — email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a> to request an export</li>
-    <li><strong>Delete your account</strong> — Settings inside the app, Delete Account. That removes your pantry data on our servers. You can also email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a> and we will do it within 30 days.</li>
+    <li><strong>Delete your account</strong> — Settings inside the app, Delete Account. That removes your account, pantry, lists, and recipes from our servers. You can also email <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a> and we will do it within 30 days.</li>
     <li><strong>Correct your data</strong> — edit anything inside the app</li>
   </ul>
 

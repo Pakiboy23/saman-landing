@@ -253,6 +253,11 @@ nav {
   text-align: center;
 }
 
+/* App Store badge — official Apple artwork, unmodified, clear space kept */
+.store-cta { display: flex; justify-content: center; padding: 6px 0; }
+.store-badge { display: inline-block; line-height: 0; }
+.store-badge img { height: 53px; width: auto; display: block; }
+
 /* divider */
 .section-divider {
   width: 40px;
@@ -394,6 +399,8 @@ footer {
   .form-row button { width: 100%; padding: 12px; border-radius: 10px; min-height: 52px; }
 }
 </style>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -402,7 +409,7 @@ footer {
     Saman
     <span>سامان</span>
   </div>
-  <a class="nav-badge" href="#email-input">Get early access &rarr;</a>
+  <a class="nav-badge" href="https://apps.apple.com/us/app/id6761982454">Get the app &rarr;</a>
 </nav>
 
 <section class="hero">
@@ -419,16 +426,11 @@ footer {
   </p>
 
   <div class="form-wrap">
-    <!-- TODO: swap with "Join X people already on the list" when count is available -->
-    <p class="social-proof">Be first in line. Early access opens at launch.</p>
-    <div class="form-row" id="form-row">
-      <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" />
-      <button onclick="handleSubmit()">Get early access</button>
+    <p class="social-proof">Now on the App Store.</p>
+    <div class="store-cta">
+      <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Saman Pantry on the App Store"><img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="160" height="53"></a>
     </div>
-    <div class="success-msg" id="success-msg">
-      You're on the list. We'll reach out before launch.
-    </div>
-    <p class="form-note">iPhone only · No spam · Unsubscribe anytime</p>
+    <p class="form-note">Free on iPhone · iOS 17 or later · Saman Pro optional</p>
   </div>
 </section>
 
@@ -463,12 +465,10 @@ footer {
 
 <footer>
   <div class="footer-top">
-    <p class="footer-cta-label">Still interested? Get early access.</p>
-    <div id="footer-form-row" class="form-row">
-      <input type="email" id="footer-email-input" placeholder="your@email.com" autocomplete="email" />
-      <button onclick="handleFooterSubmit()">Get early access</button>
+    <p class="footer-cta-label">Ready when your kitchen is.</p>
+    <div class="store-cta">
+      <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Saman Pantry on the App Store"><img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="160" height="53"></a>
     </div>
-    <div id="footer-success-msg" style="display:none;">You're on the list. We'll reach out before launch.</div>
   </div>
   <div class="footer-bottom">
     <div class="footer-wordmark">
@@ -486,47 +486,6 @@ footer {
   </div>
 </footer>
 
-<script>
-function handleSubmit() {
-  const email = document.getElementById('email-input').value.trim();
-  if (!email || !email.includes('@')) {
-    document.getElementById('email-input').style.outline = '2px solid #C67E2A';
-    setTimeout(() => document.getElementById('email-input').style.outline = '', 1200);
-    return;
-  }
-  document.getElementById('form-row').style.display = 'none';
-  document.getElementById('success-msg').style.display = 'block';
-  fetch('https://formspree.io/f/xlgoowzq', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: email })
-  });
-}
-
-function handleFooterSubmit() {
-  const email = document.getElementById('footer-email-input').value.trim();
-  if (!email || !email.includes('@')) {
-    document.getElementById('footer-email-input').style.outline = '2px solid #C67E2A';
-    setTimeout(() => document.getElementById('footer-email-input').style.outline = '', 1200);
-    return;
-  }
-  document.getElementById('footer-form-row').style.display = 'none';
-  document.getElementById('footer-success-msg').style.display = 'block';
-  fetch('https://formspree.io/f/xlgoowzq', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: email })
-  });
-}
-
-document.getElementById('email-input').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') handleSubmit();
-});
-
-document.getElementById('footer-email-input').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') handleFooterSubmit();
-});
-</script>
 
 </body>
 </html>
