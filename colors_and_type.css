@@ -1,38 +1,42 @@
-/* Samaan Technologies — Design Tokens MMXXVI
-   ─────────────────────────────────────────
-   Three product palettes. One ink. No gradient bar.
-   Accents are used on decisions only.
+/* Samaan Pantry — design tokens
+   Light-mode values are sRGB, converted in Chrome from the Display P3
+   colorsets in the iOS app (Saman/Assets.xcassets/Pantry/).
+   Pital is not in that catalog. Low stock is AccentMasala.
+   Spacing and radii live in SamaanTheme.swift: 4 / 8 / 16 / 24 / 32
+   and corners 8 / 12 / 16 / pill 100.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,wght@0,400;1,400&display=swap');
 
 :root {
+  /* App surfaces and ink */
+  --doodh:        #FDF8ED;   /* SurfaceDoodh */
+  --banaras:      #F4E9D0;   /* SurfaceMalai — card */
+  --malai:        #F4E9D0;
+  --atta:         #E8D4AB;   /* SurfaceAtta — emoji chip */
+  --siyahi:       #201A13;   /* InkKohl */
+  --ink:          #201A13;
+  --muted:        #5E5446;   /* InkKohlSoft */
+  --ink-soft:     #5E5446;
 
-  /* ── Pantry / Saman Pantry ─────────────────── */
-  --doodh:      #FAF4E5;   /* page ground          */
-  --banaras:    #F2E6D0;   /* card surface         */
-  --atta:       #E7DABE;   /* hairlines             */
-  --khaki:      #C7B68C;   /* mid tone / dividers  */
-  --siyahi:     #1A1410;   /* primary ink          */
-  --muted:      #9A8C7C;   /* secondary / captions */
+  --saag:         #2E6D43;   /* BrandSaag */
+  --saag-deep:    #205332;   /* BrandSaagDeep */
+  --saag-lt:      #6DA77F;   /* BrandSaagSoft */
+  --saag-soft:    #6DA77F;
 
-  /* Pantry accent */
-  --saag:       #3F6B47;   /* in stock · primary action */
-  --saag-lt:    #D4E4D8;   /* saag tint surface    */
+  --brass:        #935736;   /* AccentMasala */
+  --masala:       #935736;
+  --anaar:        #AA2028;   /* AccentAnaar */
+  --akhrot:       #7B3E1B;   /* BorderAkhrot */
+  --akhrot-soft:  #AE8966;   /* BorderAkhrotSoft */
+  --hairline:     rgba(174, 137, 102, 0.5);
 
-  /* Status */
-  --brass:      #A87A2F;   /* low stock            */
-  --anaar:      #9C2E2E;   /* expiring             */
+  /* Parent-company names kept as aliases. The app does not ship a Pital swatch. */
+  --pital:        #935736;
+  --raat:         #16120E;
 
-  /* ── Samaan Technologies (parent) ─────────── */
-  --pital:      #A87A2F;   /* brass                */
-  --akhrot:     #734123;   /* walnut               */
-  --raat:       #0D1117;   /* dark ground          */
-
-  /* ── Typography ────────────────────────────── */
-  --font-display:  'Cormorant Garamond', Georgia, serif;
-  --font-body:     'Newsreader', Georgia, serif;
-  --font-mono:     'IBM Plex Mono', 'Menlo', monospace;
-  --font-ui:       'Instrument Serif', Georgia, serif;
-
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --font-ui:      -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
