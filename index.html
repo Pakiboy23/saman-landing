@@ -3,489 +3,186 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Saman is a pantry for one desi kitchen. Flag what's low, shop, mark it bought — the pantry updates. Built for iPhone.">
-<!-- Open Graph -->
-<meta property="og:title" content="Saman — Your kitchen, always stocked">
-<meta property="og:description" content="Saman is a pantry for one desi kitchen. Flag what's low, shop, mark it bought — the pantry updates. Built for iPhone.">
+<title>Samaan Pantry | Made for desi kitchens</title>
+<meta name="description" content="Keep track of pantry staples, keep a shopping list, and save the recipes you come back to. Samaan Pantry is made for desi kitchens. Free to start on iPhone.">
+<link rel="canonical" href="https://www.samanpantry.com/">
+<meta property="og:title" content="Samaan Pantry | Made for desi kitchens">
+<meta property="og:description" content="Know what you have. Remember what you need. Keep your pantry, shopping list, and favorite recipes together with Samaan Pantry for iPhone.">
 <meta property="og:url" content="https://www.samanpantry.com/">
 <meta property="og:type" content="website">
-<!-- TODO: create og-image.png at 1200×630px showing the app concept -->
 <meta property="og:image" content="https://www.samanpantry.com/og-image.png">
-<!-- Twitter Card -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Samaan Pantry app icon, a smiling green jar, beside the name Samaan Pantry and the line Made for desi kitchens.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Saman — Your kitchen, always stocked">
-<meta name="twitter:description" content="Saman is a pantry for one desi kitchen. Flag what's low, shop, mark it bought — the pantry updates. Built for iPhone.">
+<meta name="twitter:title" content="Samaan Pantry | Made for desi kitchens">
+<meta name="twitter:description" content="Know what you have. Remember what you need. Keep your pantry, shopping list, and favorite recipes together with Samaan Pantry for iPhone.">
 <meta name="twitter:image" content="https://www.samanpantry.com/og-image.png">
-<title>Saman — Your kitchen, always stocked</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #FAF6EF;
-  --bg-card: #F3ECE0;
-  --text: #1C0F00;
-  --text-muted: #7A6352;
-  --accent: #C67E2A;
-  --accent-light: #F5E6CC;
-  --border: rgba(28,15,0,0.1);
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { background: var(--bg); scroll-behavior: smooth; }
-
-body {
-  font-family: 'Outfit', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* grain overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.6;
-}
-
-/* nav */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
-  background: linear-gradient(to bottom, var(--bg) 60%, transparent);
-}
-
-.wordmark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.02em;
-  line-height: 1.1;
-}
-
-.wordmark span {
-  font-family: 'Noto Nastaliq Urdu', serif;
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--accent);
-  display: block;
-  margin-top: 1px;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.nav-badge {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--accent);
-  background: var(--accent-light);
-  padding: 5px 12px;
-  border-radius: 20px;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-
-.nav-badge:hover {
-  background: #EEDCBF;
-}
-
-/* hero */
-.hero {
-  min-height: 100svh;
-  min-height: 100vh;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 90px 24px 40px;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-eyebrow {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 16px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards;
-  animation-delay: 0.1s;
-}
-
-.hero-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(42px, 7vw, 80px);
-  font-weight: 700;
-  line-height: 1.0;
-  color: var(--text);
-  max-width: 800px;
-  margin-bottom: 6px;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
-  animation-delay: 0.2s;
-}
-
-.hero-headline em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.hero-sub-scene {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(17px, 2.5vw, 24px);
-  font-weight: 400;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-  font-style: italic;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
-  animation-delay: 0.35s;
-}
-
-.hero-body {
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--text-muted);
-  max-width: 460px;
-  line-height: 1.65;
-  margin-bottom: 28px;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
-  animation-delay: 0.45s;
-}
-
-.hero-body strong {
-  color: var(--text);
-  font-weight: 500;
-}
-
-/* social proof */
-.social-proof {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  text-align: center;
-  margin-bottom: 8px;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
-  animation-delay: 0.52s;
-}
-
-/* email form */
-.form-wrap {
-  width: 100%;
-  max-width: 420px;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
-  animation-delay: 0.55s;
-}
-
-.form-row {
-  display: flex;
-  gap: 8px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 6px 6px 6px 16px;
-  box-shadow: 0 2px 20px rgba(28,15,0,0.06);
-}
-
-.form-row input {
-  flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  color: var(--text);
-  font-weight: 400;
-}
-
-.form-row input::placeholder { color: var(--text-muted); opacity: 0.6; }
-
-.form-row button {
-  background: var(--text);
-  color: var(--bg);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.2s, transform 0.1s;
-}
-
-.form-row button:hover { background: #3D2010; }
-.form-row button:active { transform: scale(0.98); }
-
-.form-note {
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-top: 10px;
-  opacity: 0.7;
-  text-align: center;
-}
-
-.success-msg {
-  display: none;
-  font-size: 14px;
-  color: var(--accent);
-  font-weight: 500;
-  padding: 14px;
-  text-align: center;
-}
-
-/* App Store badge — official Apple artwork, unmodified, clear space kept */
-.store-cta { display: flex; justify-content: center; padding: 6px 0; }
-.store-badge { display: inline-block; line-height: 0; }
-.store-badge img { height: 53px; width: auto; display: block; }
-
-/* divider */
-.section-divider {
-  width: 40px;
-  height: 1px;
-  background: var(--border);
-  margin: 0 auto 32px;
-}
-
-/* features */
-.features {
-  padding: 48px 24px 100px;
-  background-color: rgb(244, 238, 226);
-  position: relative;
-  z-index: 1;
-}
-
-.features-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.features-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.feature-card {
-  background: var(--bg-card);
-  border-radius: 16px;
-  padding: 28px 24px;
-  border: 1px solid rgba(198, 126, 42, 0.2);
-}
-
-.feature-icon {
-  font-size: 22px;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.feature-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
-
-.feature-desc {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-
-/* footer */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 40px 28px;
-  position: relative;
-  z-index: 1;
-}
-
-.footer-top {
-  max-width: 420px;
-  margin: 0 auto 32px;
-  text-align: center;
-}
-
-.footer-cta-label {
-  font-size: 14px;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-wordmark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.1;
-}
-
-.footer-wordmark-urdu {
-  font-family: 'Noto Nastaliq Urdu', serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--accent);
-  display: block;
-  margin-top: 2px;
-}
-
-.footer-note {
-  font-size: 11px;
-  color: var(--text-muted);
-  opacity: 0.6;
-}
-
-.footer-urdu {
-  font-family: 'Noto Nastaliq Urdu', serif;
-  font-size: 13px;
-  color: var(--accent);
-  opacity: 0.8;
-}
-
-/* animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* mobile */
-@media (max-width: 640px) {
-  nav { padding: 16px 20px; }
-  .hero { padding: 80px 20px 36px; }
-  .hero-headline { font-size: clamp(36px, 10vw, 48px); }
-  .hero-eyebrow { letter-spacing: 0.08em; }
-  .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  .form-row { flex-direction: column; padding: 10px; border-radius: 16px; }
-  .form-row input { padding: 6px 8px; }
-  .form-row button { width: 100%; padding: 12px; border-radius: 10px; min-height: 52px; }
-}
-</style>
+<meta name="twitter:image:alt" content="The Samaan Pantry app icon, a smiling green jar, beside the name Samaan Pantry and the line Made for desi kitchens.">
+<meta name="theme-color" content="#FDF8ED">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/CormorantGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/site.css">
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="/">
+    <img class="brand-mark" src="/icon-72.png" width="36" height="36" alt="">
+    <span>
+      <span class="brand-name">Samaan Pantry</span>
+      <span class="brand-urdu" lang="ur" dir="rtl">سامان</span>
+    </span>
+  </a>
+  <a class="nav-cta" href="https://apps.apple.com/us/app/id6761982454">Get the app</a>
+</header>
 
-<nav>
-  <div class="wordmark">
-    Saman
-    <span>سامان</span>
-  </div>
-  <a class="nav-badge" href="https://apps.apple.com/us/app/id6761982454">Get the app &rarr;</a>
-</nav>
-
-<section class="hero">
-  <div class="hero-eyebrow">A smarter kitchen starts here</div>
-
-  <h1 class="hero-headline">Your kitchen,<br><em>always stocked.</em></h1>
-
-  <p class="hero-sub-scene">You reach for the lemons. They're gone. You're halfway through dinner.</p>
-
-  <p class="hero-body">
-    Saman tracks your pantry, fridge, and freezer. When atta runs low,
-    it goes on the list. When you shop, you mark it bought — and the
-    pantry updates. One loop. One desi kitchen.
-  </p>
-
-  <div class="form-wrap">
-    <p class="social-proof">Now on the App Store.</p>
-    <div class="store-cta">
-      <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Saman Pantry on the App Store"><img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="160" height="53"></a>
+<main id="main">
+  <div class="wrap hero">
+    <div>
+      <p class="kicker">Made for desi kitchens</p>
+      <h1>Know what you have. Remember what you need.</h1>
+      <p class="lede">Keep your pantry, shopping list, and favorite recipes in one place, with room for the way you actually cook.</p>
+      <p class="store-cta">
+        <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Samaan Pantry on the App Store">
+          <img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="132" height="44">
+        </a>
+      </p>
+      <p class="fine">Free to start on iPhone with iOS 17 or later. Saman Pro is an optional upgrade.</p>
     </div>
-    <p class="form-note">Free on iPhone · iOS 17 or later · Saman Pro optional</p>
-  </div>
-</section>
 
-<div class="section-divider"></div>
-
-<section class="features">
-  <div class="features-inner">
-    <div class="features-label">What Saman does</div>
-    <div class="features-grid">
-
-      <div class="feature-card">
-        <span class="feature-icon">⬡</span>
-        <div class="feature-title">Scan once, track forever</div>
-        <p class="feature-desc">Point your iPhone at any barcode. Saman logs the item, quantity, and lets you set a low-stock threshold. No typing, no spreadsheets.</p>
+    <aside class="panel" aria-label="A look at Home in the app">
+      <p class="panel-kicker">In the app</p>
+      <div class="panel-head">
+        <div>
+          <p class="panel-word">Samaan</p>
+          <p class="panel-sub">Good evening</p>
+        </div>
+        <div class="plus" aria-hidden="true">+</div>
       </div>
-
-      <div class="feature-card">
-        <span class="feature-icon">◎</span>
-        <div class="feature-title">Flag it before it's gone</div>
-        <p class="feature-desc">When something's running low, you flag it. It lands on the list. No fake "we'll alert you" promise — you stay in the loop, the pantry stays honest.</p>
+      <div class="capture">
+        <div class="nuskha" lang="ur" dir="rtl" aria-hidden="true">نسخہ</div>
+        <div>
+          <strong>Capture a recipe</strong>
+          <span>Paste a transcript to extract ingredients</span>
+        </div>
       </div>
-
-      <div class="feature-card">
-        <span class="feature-icon">→</span>
-        <div class="feature-title">Shop, then the pantry updates</div>
-        <p class="feature-desc">You shop wherever you already shop. Mark it bought and Saman restocks the pantry. One loop, not a second grocery app.</p>
+      <p class="section-rule rule-anaar"><span>Running low</span></p>
+      <div class="stock">
+        <div class="chip" aria-hidden="true">🌾</div>
+        <div class="stock-name">Atta</div>
+        <div class="stock-meta tone-out">○ out</div>
       </div>
-
-    </div>
+      <div class="stock">
+        <div class="chip" aria-hidden="true">🟡</div>
+        <div class="stock-name">Haldi</div>
+        <div class="stock-meta tone-masala">◐ low</div>
+      </div>
+      <div class="stock">
+        <div class="chip" aria-hidden="true">🧈</div>
+        <div class="stock-name">Ghee</div>
+        <div class="stock-meta tone-masala">◐ low</div>
+      </div>
+    </aside>
   </div>
-</section>
 
-<footer>
-  <div class="footer-top">
-    <p class="footer-cta-label">Ready when your kitchen is.</p>
-    <div class="store-cta">
-      <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Saman Pantry on the App Store"><img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="160" height="53"></a>
+  <section class="features wrap" aria-labelledby="features-heading">
+    <p class="kicker center">Home · Pantry · Lists · Recipes</p>
+    <h2 id="features-heading">A place for the everyday essentials</h2>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 9h16v11H4z"/><path d="M4 13h16"/><path d="M8 9V5h8v4"/>
+        </svg>
+        <h3>Know what's in the pantry</h3>
+        <p>From atta and daal to the last jar of ghee, keep your staples in view. Scan a barcode or add an item yourself, set the minimum you like to keep on hand, and see what's running low on Home before your next shop.</p>
+      </article>
+      <article class="feature-card">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 7h12"/><path d="M8 12h12"/><path d="M8 17h12"/><path d="M4 7l1 1 2-2"/><path d="M4 12h.01"/><path d="M4 17h.01"/>
+        </svg>
+        <h3>Keep the next shop in order</h3>
+        <p>Add what you need to a shopping list. Check off an item as you buy it, and its matching pantry item updates too.</p>
+      </article>
+      <article class="feature-card">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.1.1l2.4-2.4a5 5 0 0 0-7.1-7.1l-1.2 1.2"/><path d="M14 11a5 5 0 0 0-7.1-.1L4.5 13.3a5 5 0 0 0 7.1 7.1l1.2-1.2"/>
+        </svg>
+        <h3>Keep the recipes you come back to</h3>
+        <p>Paste a recipe the way it was written or said, including recipes in a mix of English and Urdu, Hindi, or Punjabi. Samaan Pantry pulls out the ingredients and steps, leaves a little andaza as andaza instead of guessing a number, and keeps your original text with the recipe. Pick the ingredients you need and add them to a shopping list.</p>
+      </article>
+      <article class="feature-card">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M4 20a8 8 0 0 1 16 0"/>
+        </svg>
+        <h3>Start before you sign up</h3>
+        <p>Try it without an account. When you sign in with email, your kitchen syncs to your account, and what you added before your first sign-in comes along.</p>
+      </article>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-wordmark">
-      Saman
-      <span class="footer-wordmark-urdu">سامان</span>
+    <p class="guest-note">Recipe extraction needs a signed-in account and allows 5 extractions a day. The first time, the app asks before sending your recipe text to Anthropic's AI to read it. Check the ingredients and amounts before you shop or cook.</p>
+  </section>
+
+  <section class="pro" aria-labelledby="pro-heading">
+    <div class="wrap">
+      <div class="pro-card">
+        <p class="kicker">Start free. Add more when you need it.</p>
+        <h2 id="pro-heading">Room for more with Saman Pro</h2>
+        <p class="pro-sub">Unlimited pantry items and shopping lists.</p>
+        <ul class="benefits">
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <div>
+              <strong>Unlimited pantry items</strong>
+              <span>Track every staple in the kitchen.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <div>
+              <strong>Unlimited shopping lists</strong>
+              <span>Keep weekly, festival, and bulk lists organized.</span>
+            </div>
+          </li>
+        </ul>
+        <p class="pro-note">Free includes up to 30 pantry items and 1 shopping list from the Lists tab. Lists made from a recipe don't count toward that. Recipe extraction is 5 a day on Free and Saman Pro.</p>
+        <p class="store-cta">
+          <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Samaan Pantry on the App Store">
+            <img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="132" height="44">
+          </a>
+        </p>
+        <p class="fine">Upgrade in the app. Purchases are handled by Apple.</p>
+      </div>
     </div>
-    <div class="footer-urdu">provisions · pantry tracker for iPhone</div>
-    <div style="display:flex;gap:20px;align-items:center;">
-      <a href="/privacy" style="font-size:12px;color:var(--text-muted);text-decoration:none;opacity:0.8;">Privacy</a>
-      <a href="/terms" style="font-size:12px;color:var(--text-muted);text-decoration:none;opacity:0.8;">Terms</a>
-      <a href="/support" style="font-size:12px;color:var(--text-muted);text-decoration:none;opacity:0.8;">Support</a>
-      <a href="mailto:haaris@samantechnologies.com" style="font-size:12px;color:var(--text-muted);text-decoration:none;opacity:0.8;">Contact</a>
-      <span class="footer-note">samanpantry.com · &copy; 2026</span>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cta">
+      <p>Start with what's in the pantry.</p>
+      <p class="store-cta">
+        <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Samaan Pantry on the App Store">
+          <img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="132" height="44">
+        </a>
+      </p>
+    </div>
+    <div class="footer-row">
+      <div class="footer-brand">
+        <span class="brand-name">Samaan Pantry</span>
+        <span class="brand-urdu" lang="ur" dir="rtl">سامان</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="mailto:haaris@samantechnologies.com">Contact</a>
+      </nav>
+      <p class="legal-line">samanpantry.com · © 2026<br>Saman Technologies LLC, doing business as Samaan Technologies</p>
     </div>
   </div>
 </footer>
-
-
 </body>
 </html>
