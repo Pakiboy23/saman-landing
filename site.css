@@ -457,6 +457,10 @@ a:hover { color: var(--saag-deep); }
   color: var(--ink-soft);
 }
 
+.feature-card p + p {
+  margin-top: 8px;
+}
+
 .icon {
   width: 28px;
   height: 28px;
