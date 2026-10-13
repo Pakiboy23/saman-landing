@@ -414,12 +414,50 @@ a:hover { color: var(--saag-deep); }
   color: var(--ink-soft);
 }
 
+.stock-meta.meta-when {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
 .tone-saag { color: var(--saag); }
 .tone-masala { color: var(--masala); }
 .tone-out { color: var(--ink-soft); }
 
+.story {
+  max-width: 40rem;
+  padding: 24px 0 40px;
+  text-align: center;
+}
+
+.story p:not(.kicker) {
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.story p:last-child { margin-bottom: 0; }
+
+.steps-section { padding: 8px 0 48px; }
+
+.steps {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.steps .feature-card .kicker {
+  margin-bottom: 0;
+  color: var(--saag);
+}
+
+.steps .feature-card h3 { margin-top: 6px; }
+
 .features { padding: 8px 0 48px; }
 
+.story h2,
+.steps-section h2,
 .features h2,
 .pro h2 {
   margin: 0 0 var(--space-lg);
@@ -686,6 +724,8 @@ a:hover { color: var(--saag-deep); }
     align-items: center;
     padding: 56px 0 40px;
   }
+  .story { padding: 40px 0 56px; }
+  .steps { grid-template-columns: repeat(3, 1fr); }
   .feature-grid { grid-template-columns: 1fr 1fr; }
   .pro-card { padding: 36px 40px; }
   .footer-row {
