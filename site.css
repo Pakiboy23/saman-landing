@@ -595,6 +595,11 @@ a:hover { color: var(--saag-deep); }
   font-size: 15px;
 }
 
+.footer-cta .name-note {
+  margin: 12px 0 0;
+  font-size: 13px;
+}
+
 .footer-row {
   display: flex;
   flex-direction: column;
