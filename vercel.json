@@ -30,6 +30,9 @@
   "rewrites": [
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/support", "destination": "/support.html" },
-    { "source": "/terms", "destination": "/terms.html" }
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/changelog", "destination": "/changelog.html" },
+    { "source": "/vs/paprika", "destination": "/vs/paprika.html" },
+    { "source": "/vs/pantry-pal", "destination": "/vs/pantry-pal.html" }
   ]
 }

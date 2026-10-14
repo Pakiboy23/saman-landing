@@ -24,6 +24,54 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/CormorantGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.samanpantry.com/#org",
+      "name": "Saman Technologies LLC",
+      "alternateName": "Samaan Technologies",
+      "url": "https://www.samanpantry.com/",
+      "email": "haaris@samantechnologies.com",
+      "logo": "https://www.samanpantry.com/icon-72.png"
+    },
+    {
+      "@type": "Product",
+      "name": "Samaan Pantry",
+      "description": "A recipe capture app for desi kitchens. Hit record while someone talks you through a dish, or type it the way they say it, and keep it as a recipe.",
+      "brand": { "@type": "Brand", "name": "Samaan Pantry" },
+      "manufacturer": { "@id": "https://www.samanpantry.com/#org" },
+      "url": "https://www.samanpantry.com/",
+      "image": "https://www.samanpantry.com/og-image.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "5 recipe extractions for life. No card, no trial clock."
+        },
+        {
+          "@type": "Offer",
+          "name": "Samaan Pro monthly",
+          "price": "7.99",
+          "priceCurrency": "USD",
+          "description": "Unlimited recipe extractions, billed each month."
+        },
+        {
+          "@type": "Offer",
+          "name": "Samaan Pro yearly",
+          "price": "59.99",
+          "priceCurrency": "USD",
+          "description": "Unlimited recipe extractions, billed each year."
+        }
+      ]
+    }
+  ]
+}
+</script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -31,7 +79,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <a class="brand" href="/">
-    <img class="brand-mark" src="/icon-72.png" width="36" height="36" alt="">
+    <img class="brand-mark" src="/icon-72.png" srcset="/favicon-32.png 32w, /icon-72.png 72w, /apple-touch-icon.png 180w" sizes="36px" width="36" height="36" alt="">
     <span>
       <span class="brand-name">Samaan Pantry</span>
       <span class="brand-urdu" lang="ur" dir="rtl">سامان</span>
@@ -45,16 +93,33 @@
     <div>
       <p class="kicker">Made for desi kitchens</p>
       <h1>Your family's recipes live in voice notes and memory.</h1>
-      <p class="lede">Hit record while someone talks you through it, or type it the way they say it, and keep it as a recipe.</p>
+      <p class="lede">Samaan Pantry is a recipe capture app. Hit record while someone talks you through it, or type it the way they say it, and keep it as a recipe.</p>
       <p class="store-cta">
         <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Samaan Pantry on the App Store">
           <img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="132" height="44">
         </a>
       </p>
+      <p class="secondary-cta"><a href="#example">See an example</a></p>
       <p class="fine">Free to start on iPhone with iOS 17 or later. Samaan Pro is an optional upgrade.</p>
+      <form class="platform-note" action="mailto:haaris@samantechnologies.com" method="post" enctype="text/plain">
+        <label for="android-email">On Android? Leave your email and we'll tell you if an Android version is planned.</label>
+        <div class="platform-row">
+          <input id="android-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="you@email.com">
+          <button type="submit">Email us</button>
+        </div>
+      </form>
+      <!-- Haaris: this form opens the visitor's email app to haaris@samantechnologies.com. There is no stored waitlist. The audit asked to say Android will land. That date is not in the repo, so the line does not promise one. -->
     </div>
 
-    <aside class="panel" aria-label="A look inside the app">
+    <aside class="panel" id="example" aria-label="An example of a recipe kept as said, and a look inside the app">
+      <p class="panel-kicker example-kicker">Example</p>
+      <p class="example-said">What was said: "basically two cups atta, andaza-ish..."</p>
+      <ul class="example-kept">
+        <li><strong>Atta</strong><span>andaza, about two cups, left as said</span></li>
+        <li><strong>Step</strong><span>Kept the way it was said. No number was guessed.</span></li>
+      </ul>
+      <p class="example-note">An example of how extraction leaves andaza as andaza. Not a recording from a real kitchen.</p>
+      <!-- Haaris: swap this example for a real transcript and a real app screenshot when you have one. Do not present it as a user story. -->
       <p class="panel-kicker">In the app</p>
       <div class="panel-head">
         <div>
@@ -106,6 +171,13 @@
     <h2 id="story-heading">A recipe kept in memory is one phone call away from being lost.</h2>
     <p>Desi recipes travel by word and by hand. No cards, no measurements, nothing written down. A dish learned standing next to someone, explained again over the phone the first time you try it alone, sitting in a voice note nobody goes back to.</p>
     <p>Samaan Pantry is for writing those down while there is still someone to ask.</p>
+    <p>It is not a grocery delivery service, a price-comparison tool, or inventory software for a business.</p>
+  </section>
+
+  <section class="founder wrap" aria-labelledby="founder-heading">
+    <h2 id="founder-heading">Who builds it</h2>
+    <p>Samaan Pantry is built by Saman Technologies LLC, doing business as Samaan Technologies. Write to <a href="mailto:haaris@samantechnologies.com">haaris@samantechnologies.com</a>.</p>
+    <!-- Haaris: add your name, photo, one-line bio, and a LinkedIn or X link. Then attribute "Why we built it" to you by name. -->
   </section>
 
   <section class="steps-section wrap" aria-labelledby="steps-heading">
@@ -126,10 +198,15 @@
         <p class="kicker">03 · Family book</p>
         <h3>It goes in the shared family book</h3>
         <p>A recipe made from a transcript or a recording publishes to one shared family book. Signed-in users can read it. Short on ingredients? Send them to a shopping list and check them off as you buy them.</p>
-        <p>Coming soon: family cookbooks. Create a private family book, invite family by link or code, and everyone keeps the recipes.</p>
+        <p>Coming soon: family cookbooks. Create a private family book, invite family by link or code, and everyone keeps the recipes. <a href="/changelog">No date yet. See the changelog.</a></p>
       </article>
     </div>
-    <p class="guest-note">Recipe capture needs a signed-in account. Free includes 5 recipe extractions for life and Samaan Pro is unlimited. The first time, the app asks before sending your recipe to Anthropic's AI to read it. Check the ingredients and amounts before you shop or cook.</p>
+    <p class="guest-note">Pantry and lists work without an account. Sign in with email when you're ready to save recipes to the family book. Free includes 5 recipe extractions for life and Samaan Pro is unlimited. The first time, the app asks before sending your recipe to Anthropic's AI to read it. Check the ingredients and amounts before you shop or cook. The <a href="/privacy">privacy policy</a> says what is collected.</p>
+  </section>
+
+  <!-- Haaris: section titled "Kept", between these steps and the feature grid. Add 3 to 5 real quotes. Each needs a first name, a role, and a specific outcome. Do not invent quotes. Do not use she, her, mom, grandma, Ammi, or Nani. -->
+  <section hidden aria-labelledby="kept-heading">
+    <h2 id="kept-heading">Kept</h2>
   </section>
 
   <section class="features wrap" aria-labelledby="features-heading">
@@ -141,7 +218,7 @@
           <path d="M4 9h16v11H4z"/><path d="M4 13h16"/><path d="M8 9V5h8v4"/>
         </svg>
         <h3>Know what's in the pantry</h3>
-        <p>From atta and daal to the last jar of ghee, keep your staples in view. Scan a barcode or add an item yourself, set the minimum you like to keep on hand, and see what's running low on Home before your next shop.</p>
+        <p>From atta and daal to the last jar of ghee, keep your staples in view. Scan a barcode instead of typing every staple in by hand, or add an item yourself. Set the minimum you like to keep on hand, and see what's running low on Home before your next shop.</p>
       </article>
       <article class="feature-card">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
@@ -159,6 +236,9 @@
       </article>
     </div>
   </section>
+
+  <!-- Haaris: trust strip directly above pricing. Add a dated App Store star rating and review count, plus any real usage figure such as recipes saved. Do not invent ratings, review counts, user counts, or press. -->
+  <p hidden>App Store rating and recipes saved. Needs real numbers from Haaris.</p>
 
   <section class="pro" aria-labelledby="pro-heading">
     <div class="wrap">
@@ -185,9 +265,11 @@
           </ul>
         </div>
         <div class="plan plan-pro">
+          <p class="plan-badge">Recommended</p>
           <p class="plan-name">Samaan Pro</p>
           <p class="plan-price">$7.99 <span>a month</span></p>
           <p class="plan-cycle">Or $59.99 a year, saving 37%.</p>
+          <p class="plan-anchor">$7.99 a month, less than one takeaway order, for the recipes you'd otherwise lose.</p>
           <ul class="plan-list">
             <li>
               <span class="check" aria-hidden="true">✓</span>
@@ -204,7 +286,7 @@
           </ul>
         </div>
       </div>
-      <p class="guest-note">Coming soon: family cookbooks. Create a private family book, invite family by link or code, and everyone keeps the recipes.</p>
+      <p class="guest-note">Coming soon: family cookbooks. Create a private family book, invite family by link or code, and everyone keeps the recipes. <a href="/changelog">No date yet. See the changelog.</a></p>
       <p class="store-cta">
         <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Samaan Pantry on the App Store">
           <img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="132" height="44">
@@ -235,9 +317,13 @@
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="/support">Support</a>
+        <a href="/changelog">Changelog</a>
+        <a href="/vs/paprika">Vs Paprika</a>
+        <a href="/vs/pantry-pal">Vs Pantry Pal</a>
         <a href="mailto:haaris@samantechnologies.com">Contact</a>
       </nav>
-      <p class="legal-line">samanpantry.com · © 2026<br>Saman Technologies LLC, doing business as Samaan Technologies</p>
+      <p class="legal-line">samanpantry.com · © 2026<br>Saman Technologies LLC, doing business as Samaan Technologies<br>Built by Saman Technologies LLC. Updated <time datetime="2026-10-14">14 October 2026</time></p>
+      <!-- Haaris: repeat your name, photo, and LinkedIn or X in this footer once they are on the page. -->
     </div>
   </div>
 </footer>
