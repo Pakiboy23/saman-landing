@@ -313,6 +313,10 @@ a:hover { color: var(--saag-deep); }
   background: var(--saag-deep);
 }
 
+#example {
+  scroll-margin-top: 6.5rem;
+}
+
 .panel {
   background: var(--doodh);
   border: 1px solid var(--hairline);
