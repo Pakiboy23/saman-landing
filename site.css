@@ -580,6 +580,8 @@ a:hover { color: var(--saag-deep); }
 .pro .store-cta,
 .pro .fine { text-align: center; }
 
+.pro .guest-note { margin-bottom: var(--space-lg); }
+
 .plans {
   display: grid;
   gap: var(--space-md);
