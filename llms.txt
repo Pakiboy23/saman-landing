@@ -1,0 +1,36 @@
+# Samaan Pantry
+
+> Samaan Pantry is a recipe capture app for desi kitchens. Hit record while someone talks you through a dish, or type it the way they say it, and keep it as a recipe.
+
+Updated: 2026-10-14
+
+## Product
+
+- Site: https://www.samanpantry.com/
+- Platform: iPhone, iOS 17 or later. There is no Android app, and no ship date.
+- Company: Saman Technologies LLC, doing business as Samaan Technologies
+- Contact: haaris@samaan.tech
+
+## What it does
+
+- Recipe capture: record someone explaining a dish, or type or paste what they said. You can also paste a link to a website or a YouTube video.
+- Typed or pasted text can mix Urdu, Hindi, Punjabi, and English. A voice recording is kept with the recipe. Do not describe the recorder as understanding those languages.
+- Andaza stays andaza. Approximate amounts are left as said instead of guessing a number nobody said.
+- One shared family book today. Signed-in users can read it. Per-family cookbooks are coming soon, with no date set.
+- Pantry and shopping lists work without an account. Recipe extraction needs a signed-in account.
+- It is not a grocery delivery service, a price-comparison tool, or inventory software for a business.
+
+## Price
+
+- Free: $0. New accounts get 5 recipe extractions for life. No card, no trial clock. Read the shared family book. Pantry and shopping lists.
+- Samaan Pro: unlimited recipe extractions. $7.99 a month or $59.99 a year, saving 37%. Purchases are handled by Apple.
+
+## Pages
+
+- https://www.samanpantry.com/
+- https://www.samanpantry.com/changelog
+- https://www.samanpantry.com/vs/paprika
+- https://www.samanpantry.com/vs/pantry-pal
+- https://www.samanpantry.com/privacy
+- https://www.samanpantry.com/terms
+- https://www.samanpantry.com/support
