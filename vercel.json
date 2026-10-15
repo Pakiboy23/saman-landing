@@ -3,6 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/:l([a-z0-9])",
+      "destination": "/?utm_source=heycatch&utm_campaign=:l",
+      "statusCode": 302
+    },
+    {
       "source": "/",
       "has": [{ "type": "host", "value": "samaanpantry.com" }],
       "destination": "https://www.samanpantry.com/",
