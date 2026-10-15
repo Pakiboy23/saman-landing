@@ -122,8 +122,9 @@ analytics.init({
   <ul>
     <li>App crashes and errors, used to fix bugs</li>
     <li>Basic device type and iOS version, provided automatically by Apple</li>
-    <li>Anonymous usage events (for example: app opened, item added, item marked bought, recipe saved, recipe shared) tagged with a random install ID, the app version, and a timestamp. They are not linked to your email or account, are not used for advertising or tracking, and only tell us which parts of the app are used</li>
+    <li>Separate from the HeyCatch product analytics below, anonymous usage events (for example: app opened, item added, item marked bought, recipe saved, recipe shared) tagged with a random install ID, the app version, and a timestamp. Those events are not linked to your email or account, are not used for advertising or tracking, and only tell us which parts of the app are used</li>
   </ul>
+  <p>Starting with version 1.6, the iOS app sends product analytics to HeyCatch. It uses the PostHog iOS SDK pointed at HeyCatch. The app sends fixed event names and screen names, for example <code>recipe_saved</code>. After you sign in, those events are linked to your Supabase user id. The SDK also sends app and device context: app version, operating system, device model class such as iPhone, locale, and timezone. It does not send recipe text, transcripts, audio, names, emails, list names, item names, barcodes, or prices. These events measure use inside Samaan Pantry. There is no tracking across other companies' apps. See <a href="https://heycatch.ai/privacy" target="_blank" rel="noopener">HeyCatch's privacy policy</a>.</p>
 
   <p><strong>This website</strong></p>
   <ul>
@@ -131,7 +132,7 @@ analytics.init({
     <li>samanpantry.com uses HeyCatch for site analytics. HeyCatch collects page views, page leaves, rage clicks, clicks (including the text and attributes of the element that was clicked), and form submissions excluding what was typed, plus the session, IP address, device and browser data, and an identifier stored in local storage. Input contents are not captured, session replay is disabled, and card data is not collected. See <a href="https://heycatch.ai/privacy" target="_blank" rel="noopener">HeyCatch's privacy policy</a>.</li>
   </ul>
 
-  <p>We do not collect your location, contacts, or biometric data. Camera access, if you grant it, is used only to scan a barcode. We do not use third-party advertising trackers.</p>
+  <p>We do not collect your location, contacts, or biometric data. Camera access, if you grant it, is used only to scan a barcode. We do not use third-party advertising trackers. We do not use the advertising identifier (IDFA), and the app does not show an App Tracking Transparency prompt.</p>
 
   <h2>How we use your data</h2>
   <ul>
@@ -141,7 +142,7 @@ analytics.init({
     <li>To process a paid subscription if you choose one</li>
     <li>To respond to support questions</li>
     <li>To fix crashes and bugs</li>
-    <li>To understand, in aggregate, which features are used so we can improve them</li>
+    <li>To understand which parts of the app are used so we can improve them</li>
   </ul>
 
   <p>We do not sell your data. We do not share it with advertisers. Recipe text is sent to an AI provider (Anthropic) only when you ask the app to extract ingredients, and starting with version 1.1 the app asks for your permission before the first extraction. We do not use your pantry to train our own models.</p>
@@ -155,7 +156,8 @@ analytics.init({
   <h2>Who we share data with</h2>
   <p>We use a small number of trusted services to operate the app:</p>
   <ul>
-    <li><strong>Supabase.</strong> Database, authentication, and the Edge Functions that proxy recipe extraction and account deletion. Your account and pantry data live here. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's privacy policy</a>.</li>
+    <li><strong>Supabase.</strong> Database, authentication, and the Edge Functions that proxy recipe extraction and account deletion. Your account and pantry data live here. Supabase also receives an anonymous product-event row (random install ID, event name, and app version) that is not tied to your account. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's privacy policy</a>.</li>
+    <li><strong>HeyCatch.</strong> Product analytics from the iOS app starting with version 1.6, using the PostHog iOS SDK pointed at HeyCatch, as described above. samanpantry.com also uses HeyCatch for site analytics. That collection is described in the This website section above. See <a href="https://heycatch.ai/privacy" target="_blank" rel="noopener">HeyCatch's privacy policy</a>.</li>
     <li><strong>Anthropic.</strong> Processes the recipe text you choose to extract (a transcript, or text from a recipe link you paste), only through our <code>extract-recipe</code> Edge Function. The iOS app never talks to Anthropic directly and never ships an API key. See <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic's privacy policy</a>.</li>
     <li><strong>YouTube (Google).</strong> When you paste a YouTube link, receives the video ID through the YouTube Data API so our server can read the video's title and description. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</li>
     <li><strong>RevenueCat.</strong> Subscription status if you buy Samaan Pro. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's privacy policy</a>.</li>
