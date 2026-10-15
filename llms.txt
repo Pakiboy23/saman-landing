@@ -9,7 +9,7 @@ Updated: 2026-10-14
 - Site: https://www.samanpantry.com/
 - Platform: iPhone, iOS 17 or later. There is no Android app, and no ship date.
 - Company: Saman Technologies LLC, doing business as Samaan Technologies
-- Contact: haaris@samantechnologies.com
+- Contact: haaris@samaan.tech
 
 ## What it does
 
@@ -22,7 +22,7 @@ Updated: 2026-10-14
 
 ## Price
 
-- Free: $0. 5 recipe extractions for life. No card, no trial clock. Read the shared family book. Pantry and shopping lists.
+- Free: $0. New accounts get 5 recipe extractions for life. No card, no trial clock. Read the shared family book. Pantry and shopping lists.
 - Samaan Pro: unlimited recipe extractions. $7.99 a month or $59.99 a year, saving 37%. Purchases are handled by Apple.
 
 ## Pages
