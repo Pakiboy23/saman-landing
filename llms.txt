@@ -2,7 +2,7 @@
 
 > Samaan Pantry is a recipe capture app for desi kitchens. Hit record while someone talks you through a dish, or type it the way they say it, and keep it as a recipe.
 
-Updated: 2026-10-14
+Updated: 2026-10-15
 
 ## Product
 

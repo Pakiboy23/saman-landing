@@ -125,6 +125,7 @@ a:hover { color: var(--saag-deep); }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-md);
   padding: 12px var(--space-md);
   background: var(--doodh);
@@ -185,6 +186,85 @@ a:hover { color: var(--saag-deep); }
 }
 
 .nav-cta:hover { background: var(--saag-deep); color: var(--doodh); }
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 16px;
+  margin-left: auto;
+}
+
+.site-nav a {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-nav a[aria-current="page"] { color: var(--saag); }
+
+.site-nav .nav-cta { color: var(--doodh); }
+
+.crumbs { margin: 0 0 16px; }
+
+.crumbs.wrap { margin-top: 16px; }
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.crumbs a { color: var(--saag); }
+
+.prose .crumbs li,
+.crumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+
+.prose .crumbs li::before { content: none; }
+
+.crumbs li:not(:last-child)::after {
+  content: "/";
+  color: var(--akhrot-soft);
+}
+
+.related { margin-top: 40px; }
+
+.related h2 {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.related ul,
+.prose .related ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.related li,
+.prose .related li {
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.prose .related li::before { content: none; }
 
 .wrap {
   width: min(var(--page), calc(100% - 32px));

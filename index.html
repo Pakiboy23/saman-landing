@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Samaan Pantry | Your family's recipes, written down at last</title>
-<meta name="description" content="The recipes your family cooks were never written down. Hit record while someone talks you through it, or type it the way they say it, and keep it as a recipe. Free to start on iPhone.">
+<meta name="description" content="The recipes your family cooks were never written down. Hit record while someone talks you through it, or type it the way they say it, and keep it as a recipe.">
 <link rel="canonical" href="https://www.samanpantry.com/">
 <meta property="og:title" content="Samaan Pantry | Your family's recipes, written down at last">
-<meta property="og:description" content="Your family's recipes live in voice notes, phone calls, and memory. Hit record while someone talks you through it, or type it the way they say it, and keep it as a recipe.">
+<meta property="og:description" content="The recipes your family cooks were never written down. Hit record while someone talks you through it, or type it the way they say it, and keep it as a recipe.">
 <meta property="og:url" content="https://www.samanpantry.com/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.samanpantry.com/og-image.png">
@@ -16,7 +16,7 @@
 <meta property="og:image:alt" content="The Samaan Pantry app icon, a smiling green jar, beside the name Samaan Pantry and the line Made for desi kitchens.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Samaan Pantry | Your family's recipes, written down at last">
-<meta name="twitter:description" content="Your family's recipes live in voice notes, phone calls, and memory. Hit record while someone talks you through it, or type it the way they say it, and keep it as a recipe.">
+<meta name="twitter:description" content="The recipes your family cooks were never written down. Hit record while someone talks you through it, or type it the way they say it, and keep it as a recipe.">
 <meta name="twitter:image" content="https://www.samanpantry.com/og-image.png">
 <meta name="twitter:image:alt" content="The Samaan Pantry app icon, a smiling green jar, beside the name Samaan Pantry and the line Made for desi kitchens.">
 <meta name="theme-color" content="#FDF8ED">
@@ -31,11 +31,36 @@
     {
       "@type": "Organization",
       "@id": "https://www.samanpantry.com/#org",
-      "name": "Saman Technologies LLC",
-      "alternateName": "Samaan Technologies",
-      "url": "https://www.samanpantry.com/",
+      "name": "Samaan Pantry",
+      "legalName": "Saman Technologies LLC",
+      "url": "https://www.samanpantry.com",
       "email": "haaris@samaan.tech",
-      "logo": "https://www.samanpantry.com/icon-72.png"
+      "logo": "https://www.samanpantry.com/og-image.png",
+      "sameAs": [
+        "https://x.com/SamaanTechno"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "headline": "Samaan Pantry | Your family's recipes, written down at last",
+      "url": "https://www.samanpantry.com/",
+      "mainEntityOfPage": "https://www.samanpantry.com/",
+      "image": "https://www.samanpantry.com/og-image.png",
+      "dateModified": "2026-10-15",
+      "publisher": { "@id": "https://www.samanpantry.com/#org" }
+    },
+    {
+      "@type": "Article",
+      "headline": "Samaan Pantry | Your family's recipes, written down at last",
+      "author": {
+        "@type": "Organization",
+        "name": "Samaan Pantry",
+        "url": "https://www.samanpantry.com"
+      },
+      "datePublished": "2026-10-14",
+      "dateModified": "2026-10-15",
+      "mainEntityOfPage": "https://www.samanpantry.com/",
+      "image": "https://www.samanpantry.com/og-image.png"
     },
     {
       "@type": "Product",
@@ -86,6 +111,7 @@ analytics.init({
   },
 });
 </script>
+<!-- Haaris: Organization sameAs lists https://x.com/SamaanTechno. Add more profiles the company owns (LinkedIn, GitHub, YouTube, or a directory) when you have the URLs. Do not invent URLs. -->
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -97,10 +123,19 @@ analytics.init({
       <span class="brand-urdu" lang="ur" dir="rtl">سامان</span>
     </span>
   </a>
-  <a class="nav-cta" href="https://apps.apple.com/us/app/id6761982454">Get the app</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/support">Support</a>
+    <a href="/changelog">Changelog</a>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/id6761982454">Get the app</a>
+  </nav>
 </header>
 
 <main id="main">
+  <nav class="crumbs wrap" aria-label="Breadcrumb">
+    <ol>
+      <li aria-current="page">Samaan Pantry</li>
+    </ol>
+  </nav>
   <div class="wrap hero">
     <div>
       <p class="kicker">Made for desi kitchens</p>
@@ -307,6 +342,16 @@ analytics.init({
       <p class="fine">Upgrade in the app. Purchases are handled by Apple.</p>
     </div>
   </section>
+
+  <aside class="related wrap" aria-label="Related">
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/support">Help with recording, the pantry, and shopping lists</a></li>
+      <li><a href="/changelog">What Samaan Pantry does today</a></li>
+      <li><a href="/vs/paprika">How Samaan Pantry differs from Paprika</a></li>
+      <li><a href="/vs/pantry-pal">How Samaan Pantry differs from Pantry Pal</a></li>
+    </ul>
+  </aside>
 </main>
 
 <footer class="site-footer">
@@ -334,7 +379,7 @@ analytics.init({
         <a href="/vs/pantry-pal">Vs Pantry Pal</a>
         <a href="mailto:haaris@samaan.tech">Contact</a>
       </nav>
-      <p class="legal-line">samanpantry.com · © 2026<br>Saman Technologies LLC, doing business as Samaan Technologies<br>Built by Saman Technologies LLC. Updated <time datetime="2026-10-14">14 October 2026</time></p>
+      <p class="legal-line">samanpantry.com · © 2026<br>Saman Technologies LLC, doing business as Samaan Technologies<br>Built by Saman Technologies LLC. Updated <time datetime="2026-10-15">15 October 2026</time></p>
       <!-- Haaris: repeat your name, photo, and LinkedIn or X in this footer once they are on the page. -->
     </div>
   </div>
