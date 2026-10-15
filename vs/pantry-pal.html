@@ -64,6 +64,48 @@
 </script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script type="module">
+import { analytics } from 'https://esm.sh/@heycatch/sdk@0.8.3';
+
+analytics.init({
+  projectKey: 'hck_pk_rXbQgjO9gc2iHd6hlRBq_y_178czzi4R',
+  requestBatching: false,
+  install: {
+    framework: 'web',
+    agent: 'cursor',
+  },
+});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.samanpantry.com/#org",
+      "name": "Samaan Pantry",
+      "legalName": "Saman Technologies LLC",
+      "url": "https://www.samanpantry.com",
+      "email": "haaris@samaan.tech",
+      "logo": "https://www.samanpantry.com/og-image.png"
+    },
+    {
+      "@type": "Article",
+      "headline": "Samaan Pantry vs Pantry Pal | Samaan Pantry",
+      "author": {
+        "@type": "Organization",
+        "name": "Samaan Pantry",
+        "url": "https://www.samanpantry.com"
+      },
+      "publisher": { "@id": "https://www.samanpantry.com/#org" },
+      "datePublished": "2026-10-14",
+      "dateModified": "2026-10-15",
+      "mainEntityOfPage": "https://www.samanpantry.com/vs/pantry-pal",
+      "image": "https://www.samanpantry.com/og-image.png"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -75,9 +117,19 @@
       <span class="brand-urdu" lang="ur" dir="rtl">سامان</span>
     </span>
   </a>
-  <a class="nav-cta" href="https://apps.apple.com/us/app/id6761982454">Get the app</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/support">Support</a>
+    <a href="/changelog">Changelog</a>
+    <a class="nav-cta" href="https://apps.apple.com/us/app/id6761982454">Get the app</a>
+  </nav>
 </header>
 <main id="main" class="prose">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Samaan Pantry</a></li>
+      <li aria-current="page">Samaan Pantry vs Pantry Pal</li>
+    </ol>
+  </nav>
   <h1>Samaan Pantry and Pantry Pal</h1>
   <span class="updated">Checked <time datetime="2026-10-14">14 October 2026</time></span>
   <hr class="rule">
@@ -118,6 +170,15 @@
       <img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="132" height="44">
     </a>
   </p>
+  <aside class="related" aria-label="Related">
+    <h2>Related</h2>
+    <ul>
+      <li><a href="/vs/paprika">How Samaan Pantry differs from Paprika</a></li>
+      <li><a href="/changelog">What Samaan Pantry does today</a></li>
+      <li><a href="/">Record a family recipe and keep it</a></li>
+      <li><a href="/support">Help with recording, the pantry, and shopping lists</a></li>
+    </ul>
+  </aside>
 </main>
 <footer class="site-footer">
   <div class="wrap footer-row">
@@ -132,7 +193,7 @@
       <a href="/changelog">Changelog</a>
       <a href="/vs/paprika">Vs Paprika</a>
       <a href="/vs/pantry-pal">Vs Pantry Pal</a>
-      <a href="mailto:haaris@samantechnologies.com">Contact</a>
+      <a href="mailto:haaris@samaan.tech">Contact</a>
     </nav>
     <p class="legal-line">samanpantry.com · © 2026<br>Saman Technologies LLC, doing business as Samaan Technologies</p>
   </div>
