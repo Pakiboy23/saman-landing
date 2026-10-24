@@ -3,6 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // A same-host tap stays in Safari, so the invite URL cannot be the open control.
+  // Safari reads this banner during parse and hands app-argument to the installed app.
+  (function () {
+    var segments = location.pathname.split('/').filter(Boolean);
+    var content = 'app-id=6761982454';
+    if (segments.length === 2 && segments[0] === 'join' && /^[A-Za-z0-9]{8,64}$/.test(segments[1])) {
+      content += ', app-argument=https://www.samanpantry.com/join/' + segments[1];
+    }
+    document.write('<meta name="apple-itunes-app" content="' + content + '">');
+  })();
+</script>
 <title>Join a family cookbook · Samaan Pantry</title>
 <meta name="description" content="Someone invited you to their family cookbook on Samaan Pantry. Open the invite in the app. Joining is free.">
 <meta name="robots" content="noindex">
@@ -14,15 +26,11 @@
   <img src="/saman_logo_v6.svg" alt="Samaan Pantry" width="72" height="72">
   <h1>You're invited to a family cookbook</h1>
   <p>Someone in your family wants to share their recipes with you on Samaan Pantry. Only members can see them. Joining is free.</p>
-  <p><a class="btn" id="open" href="#">Open in Samaan Pantry</a></p>
-  <p>Don't have the app yet? Get it, sign in, then open this link again or enter the code you were sent under Recipes, Families, Join with a code.</p>
+  <p>Already have the app? Tap Open in the banner at the top. Don't have it yet? Get it, sign in, then come back and tap Open, or enter the code you were sent under Recipes, Families, Join with a code.</p>
   <p><a href="https://apps.apple.com/us/app/id6761982454"><img src="/download-on-the-app-store.svg" alt="Download on the App Store" height="40"></a></p>
   <p id="code" hidden></p>
 </main>
 <script>
-  // On an iPhone with the app installed, iOS opens /join/<token> in the app before this page loads.
-  // This button retries the same link for browsers that opened the page anyway.
-  document.getElementById('open').href = location.href;
   var parts = location.pathname.split('/').filter(Boolean);
   if (parts.length === 2 && /^[A-Za-z0-9]{8}$/.test(parts[1])) {
     var el = document.getElementById('code');
