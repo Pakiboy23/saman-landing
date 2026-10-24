@@ -348,6 +348,15 @@ a:hover { color: var(--saag-deep); }
 .platform-note {
   margin: 12px 0 0;
   max-width: 28rem;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.platform-note a {
+  display: inline-block;
+  padding: 10px 0;
+  font-weight: 600;
 }
 
 .platform-note label {
@@ -877,6 +886,7 @@ a:hover { color: var(--saag-deep); }
 .plan-pro .plan-price { color: var(--doodh); }
 
 .plan-pro .plan-price span,
+.plan-pro .plan-for,
 .plan-pro .plan-cycle,
 .plan-pro .plan-anchor { color: rgba(253, 248, 237, 0.78); }
 
@@ -1068,4 +1078,22 @@ a:hover { color: var(--saag-deep); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .wave b { animation: none; }
+}
+
+.plan-for {
+  margin: 4px 0 12px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* 375px pass: keep nav and Related links at a 44px tap height. */
+.site-nav a:not(.nav-cta) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.related li a {
+  display: inline-block;
+  padding: 12px 0;
 }
