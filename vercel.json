@@ -38,7 +38,8 @@
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/changelog", "destination": "/changelog.html" },
     { "source": "/vs/paprika", "destination": "/vs/paprika.html" },
-    { "source": "/vs/pantry-pal", "destination": "/vs/pantry-pal.html" }
+    { "source": "/vs/pantry-pal", "destination": "/vs/pantry-pal.html" },
+    { "source": "/vs/cookbook", "destination": "/vs/cookbook.html" }
   ],
   "headers": [
     {
