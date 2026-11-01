@@ -79,11 +79,11 @@
     },
     {
       "source": "/join",
-      "destination": "/join.html"
+      "destination": "/join"
     },
     {
       "source": "/join/:token",
-      "destination": "/join.html"
+      "destination": "/join"
     }
   ],
   "headers": [
