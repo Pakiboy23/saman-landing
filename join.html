@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join a family cookbook · Samaan Pantry</title>
+<meta name="description" content="Someone invited you to their family cookbook on Samaan Pantry. Open the invite in the app. Joining is free.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/site.css">
+<link rel="icon" href="/favicon-32.png">
+</head>
+<body>
+<main style="max-width:520px;margin:0 auto;padding:64px 24px;text-align:center">
+  <img src="/saman_logo_v6.svg" alt="Samaan Pantry" width="72" height="72">
+  <h1>You're invited to a family cookbook</h1>
+  <p>Someone in your family wants to share their recipes with you on Samaan Pantry. Only members can see them. Joining is free.</p>
+  <p><a class="btn" id="open" href="#">Open in Samaan Pantry</a></p>
+  <p>Don't have the app yet? Get it, sign in, then open this link again or enter the code you were sent under Recipes, Families, Join with a code.</p>
+  <p><a href="https://apps.apple.com/us/app/id6761982454"><img src="/download-on-the-app-store.svg" alt="Download on the App Store" height="40"></a></p>
+  <p id="code" hidden></p>
+</main>
+<script>
+  // On an iPhone with the app installed, iOS opens /join/<token> in the app before this page loads.
+  // This button retries the same link for browsers that opened the page anyway.
+  document.getElementById('open').href = location.href;
+  var parts = location.pathname.split('/').filter(Boolean);
+  if (parts.length === 2 && /^[A-Za-z0-9]{8}$/.test(parts[1])) {
+    var el = document.getElementById('code');
+    el.textContent = 'Your code: ' + parts[1].toUpperCase();
+    el.hidden = false;
+  }
+</script>
+</body>
+</html>

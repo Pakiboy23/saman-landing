@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["6KTSZRW2J6.com.samanpantry.Saman"],
+        "components": [
+          { "/": "/join/*", "comment": "Family cookbook invite links" }
+        ]
+      }
+    ]
+  }
+}
