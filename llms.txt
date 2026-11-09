@@ -31,6 +31,7 @@ Updated: 2026-10-15
 - https://www.samanpantry.com/changelog
 - https://www.samanpantry.com/vs/paprika
 - https://www.samanpantry.com/vs/pantry-pal
+- https://www.samanpantry.com/vs/cookbook
 - https://www.samanpantry.com/privacy
 - https://www.samanpantry.com/terms
 - https://www.samanpantry.com/support
