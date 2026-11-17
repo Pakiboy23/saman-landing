@@ -63,7 +63,7 @@ analytics.init({
       },
       "publisher": { "@id": "https://www.samanpantry.com/#org" },
       "datePublished": "2026-09-27",
-      "dateModified": "2026-10-15",
+      "dateModified": "2026-11-17",
       "mainEntityOfPage": "https://www.samanpantry.com/privacy",
       "image": "https://www.samanpantry.com/og-image.png"
     }
@@ -95,7 +95,7 @@ analytics.init({
     </ol>
   </nav>
   <h1>Privacy Policy</h1>
-  <span class="updated">Last updated: October 15, 2026</span>
+  <span class="updated">Last updated: November 17, 2026</span>
   <hr class="rule">
   <p class="intro">Samaan Pantry is built and operated by <a href="https://samaan.tech/press">Saman Technologies LLC</a>, doing business as Samaan Technologies. This page explains what data we collect, why we collect it, and what your rights are. If something is unclear, email <a href="mailto:haaris@samaan.tech">haaris@samaan.tech</a>.</p>
 
@@ -113,6 +113,7 @@ analytics.init({
     <li>Items, quantities, expiration dates, and notes you add</li>
     <li>Pantries, stores, and shopping lists you create</li>
     <li>Recipes you capture, including transcripts sent to extract ingredients</li>
+    <li>Audio you record or choose to capture a recipe, which is sent for transcription as described below. The full transcript of that audio is saved with your recipe</li>
     <li>Recipe links you paste, and the recipe text we pull from those pages</li>
   </ul>
 
@@ -147,7 +148,8 @@ analytics.init({
 
   <p>We do not sell your data. We do not share it with advertisers. Recipe text is sent to an AI provider (Anthropic) only when you ask the app to extract ingredients, and starting with version 1.1 the app asks for your permission before the first extraction. We do not use your pantry to train our own models.</p>
 
-  <h2>Recipe links and sharing</h2>
+  <h2>Recordings, links, and sharing</h2>
+  <p><strong>Recording a recipe.</strong> When you record a recipe or choose an audio file, the app uploads the audio to our server, which sends it to ElevenLabs to turn the speech into text. Speech is not transcribed on your iPhone. We do not store the audio on our server, and the app deletes its copy of the audio once the recipe comes back. ElevenLabs may keep request logs and transcripts under its standard terms. We use its standard plan, not its zero-retention option. The transcript is saved with your recipe and is then used to extract ingredients as described above.</p>
   <p><strong>Pasting a recipe link.</strong> When you paste a link to a recipe in Samaan Pantry, our server fetches that page to pull out the recipe. If the page already lists the recipe in a standard format, we read it on our server. Otherwise the page text is sent to Anthropic to turn it into ingredients and steps, as described above.</p>
   <p><strong>YouTube links.</strong> For a YouTube link, our server sends the video ID to YouTube (Google) through the YouTube Data API to read the video's title and description. We do not send your email or account details to YouTube.</p>
   <p>Pasted links and the text we pull from them are used only to import the recipe you asked for. They are not sold and are not used for advertising.</p>
@@ -158,6 +160,7 @@ analytics.init({
   <ul>
     <li><strong>Supabase.</strong> Database, authentication, and the Edge Functions that proxy recipe extraction and account deletion. Your account and pantry data live here. Supabase also receives an anonymous product-event row (random install ID, event name, and app version) that is not tied to your account. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase's privacy policy</a>.</li>
     <li><strong>HeyCatch.</strong> Product analytics from the iOS app starting with version 1.6, using the PostHog iOS SDK pointed at HeyCatch, as described above. samanpantry.com also uses HeyCatch for site analytics. That collection is described in the This website section above. See <a href="https://heycatch.ai/privacy" target="_blank" rel="noopener">HeyCatch's privacy policy</a>.</li>
+    <li><strong>ElevenLabs.</strong> Turns the audio of a recipe you record or choose into text. It receives the audio through our server, never directly from the app. Under its standard terms it may keep request logs and transcripts. See <a href="https://elevenlabs.io/privacy-policy" target="_blank" rel="noopener">ElevenLabs' privacy policy</a>.</li>
     <li><strong>Anthropic.</strong> Processes the recipe text you choose to extract (a transcript, or text from a recipe link you paste), only through our <code>extract-recipe</code> Edge Function. The iOS app never talks to Anthropic directly and never ships an API key. See <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic's privacy policy</a>.</li>
     <li><strong>YouTube (Google).</strong> When you paste a YouTube link, receives the video ID through the YouTube Data API so our server can read the video's title and description. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</li>
     <li><strong>RevenueCat.</strong> Subscription status if you buy Samaan Pro. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's privacy policy</a>.</li>
