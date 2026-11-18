@@ -106,6 +106,7 @@ analytics.init({
   <ul>
     <li>Email address</li>
     <li>Password (stored hashed, and we cannot read it)</li>
+    <li>A display name, if you set one to show other members of a family cookbook</li>
   </ul>
 
   <p><strong>Your pantry data</strong></p>
@@ -152,11 +153,7 @@ analytics.init({
   <h2>Recordings and transcription</h2>
   <p>Starting with version 1.7, speech is no longer transcribed on your iPhone. When you record a recipe or choose an audio file, the app uploads the audio to our server, which sends it to ElevenLabs to turn the speech into text. We do not store the audio on our server, and the app deletes its copy once the recipe comes back.</p>
   <p>ElevenLabs may keep request logs and transcripts under its standard terms. We use its standard plan, so zero data retention (which ElevenLabs offers only on enterprise plans) does not apply.</p>
-  <!-- TODO(owner decision, spec 9.1): say what happens to the transcript once it comes back.
-       Decided: unrelated speech will be removed and the full transcript will not be saved.
-       As of 2026-11-17 the app still saves the full raw_transcript, so do not claim unrelated
-       speech is removed until that app change ships. Do NOT use the PR #92 sentence
-       "The transcript is saved with your recipe." Fill this in before merging. -->
+  <p>In version 1.7, the transcript that comes back is kept with that recipe so you can check what was said. It stays on your iPhone and, if you are signed in, syncs to your account like the rest of the recipe. Deleting the recipe, or your account, deletes the transcript too.</p>
 
   <h2>Recipe links and sharing</h2>
   <p><strong>Pasting a recipe link.</strong> When you paste a link to a recipe in Samaan Pantry, our server fetches that page to pull out the recipe. If the page already lists the recipe in a standard format, we read it on our server. Otherwise the page text is sent to Anthropic to turn it into ingredients and steps, as described above.</p>
