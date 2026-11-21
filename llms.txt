@@ -1,29 +1,31 @@
 # Samaan Pantry
 
-> Samaan Pantry is a recipe capture app for desi kitchens. Hit record while someone talks you through a dish, or type it the way they say it, and keep it as a recipe.
+> Samaan Pantry is a recipe capture app for desi kitchens. Hit record while someone talks you through a dish, for up to ten minutes, and keep it as a recipe in the words they said. Andaza stays andaza.
 
-Updated: 2026-10-15
+Updated: 2026-11-21 (app version 1.7)
 
 ## Product
 
 - Site: https://www.samanpantry.com/
+- App Store: https://apps.apple.com/us/app/id6761982454 (listed as "Samaan Pantry: Family Recipes")
 - Platform: iPhone, iOS 17 or later. There is no Android app, and no ship date.
 - Company: Saman Technologies LLC, doing business as Samaan Technologies
 - Contact: haaris@samaan.tech
 
 ## What it does
 
-- Recipe capture: record someone explaining a dish, or type or paste what they said. You can also paste a link to a website or a YouTube video.
-- Typed or pasted text can mix Urdu, Hindi, Punjabi, and English. A voice recording is kept with the recipe. Do not describe the recorder as understanding those languages.
+- Record a recipe: hit record while someone explains a dish, for up to 10 minutes, or choose a voice note or audio file. Recordings are turned into text on the company's server by ElevenLabs.
+- Recordings and typed text can mix Urdu, Hindi, Punjabi, and English. The transcript is kept with the recipe.
+- Links: paste a YouTube video, a recipe site, or an Instagram caption. Or type the recipe the way they say it.
 - Andaza stays andaza. Approximate amounts are left as said instead of guessing a number nobody said.
-- One shared family book today. Signed-in users can read it. Per-family cookbooks are coming soon, with no date set.
-- Pantry and shopping lists work without an account. Recipe extraction needs a signed-in account.
-- It is not a grocery delivery service, a price-comparison tool, or inventory software for a business.
+- Family cookbooks: private to members. Invite by link or code. Starting one needs Samaan Pro. Joining is free.
+- The Community book: any signed-in user can read it. A recipe made from a recording or pasted words is added to it when saved. Recipes from links are added only if the owner chooses.
+- Pantry with barcode scan and Running low. Shopping lists that update the pantry. Pantry, lists, and recipes work without an account. Extraction, sync, and family cookbooks need one.
 
 ## Price
 
-- Free: $0. New accounts get 5 recipe extractions for life. No card, no trial clock. Read the shared family book. Pantry and shopping lists.
-- Samaan Pro: unlimited recipe extractions. $7.99 a month or $59.99 a year, saving 37%. Purchases are handled by Apple.
+- Free: $0. New accounts get 5 recipe extractions for life. No card, no trial clock. Join family cookbooks. Read the Community book. Unlimited pantry and shopping lists.
+- Samaan Pro: unlimited recipe extractions and starting family cookbooks. $7.99 a month or $59.99 a year, saving 37%. Purchases are handled by Apple. There is no lifetime plan.
 
 ## Pages
 
