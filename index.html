@@ -143,89 +143,36 @@ analytics.init({
     <div>
       <p class="kicker">Made for desi kitchens</p>
       <h1>Your family's recipes live in voice notes and memory.</h1>
-      <p class="lede">Samaan Pantry turns a recording into a recipe you keep, in the words they said. Hit record while they talk, for up to ten minutes, or paste a link or the words.</p>
+      <p class="lede">Record them while they talk. Keep them in the words they said.</p>
+      <ul class="chips" aria-label="At a glance">
+        <li>Up to 10 minutes per recording</li>
+        <li>Urdu, Hindi, Punjabi, English</li>
+        <li>Andaza stays andaza</li>
+        <li>Private family cookbooks</li>
+      </ul>
       <p class="store-cta">
         <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Samaan Pantry on the App Store">
           <img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="132" height="44">
         </a>
       </p>
-      <p class="secondary-cta"><a href="#example">See an example</a></p>
-      <p class="fine">Free to start on iPhone with iOS 17 or later. Samaan Pro is an optional upgrade.</p>
-      <p class="platform-note">On Android? <a href="mailto:haaris@samaan.tech?subject=Android%20version%20of%20Samaan%20Pantry">Email haaris@samaan.tech</a> and you'll get a reply if an Android version is planned.</p>
-      <!-- Haaris: the audit (D2.4) asks for a real waitlist that stores the email and confirms with "Got it. We'll email you if Android ships." That needs a storage endpoint or form service you choose. Until then this is an honest email link, not a form that looks like it saves anything. -->
+      <p class="fine">Free on iPhone, iOS 17 or later. On Android? <a href="mailto:haaris@samaan.tech?subject=Android%20version%20of%20Samaan%20Pantry">Email us</a>.</p>
     </div>
 
-    <aside class="panel" id="example" aria-label="An example of a recipe kept as said, and a look inside the app">
-      <p class="panel-kicker example-kicker">Example</p>
-      <p class="example-said">What was said: "basically two cups atta, andaza-ish..."</p>
-      <ul class="example-kept">
-        <li><strong>Atta</strong><span>andaza, about two cups, left as said</span></li>
-        <li><strong>Step</strong><span>Kept the way it was said. No number was guessed.</span></li>
-      </ul>
-      <p class="example-note">An example of how extraction leaves andaza as andaza. Not a recording from a real kitchen.</p>
-      <figure class="app-shot">
-        <img src="/app-recipe-review.png" width="603" height="1041" loading="lazy" alt="The Samaan Pantry review screen for Bhindi with Onions, from Mom. Each ingredient shows the words that were said under it, such as three packets of frozen bhindi, or fresh bhindi, and seven, eight medium onions.">
-        <figcaption>The review screen in Samaan Pantry 1.7, from a real recording.</figcaption>
-      </figure>
-      <!-- Haaris: swap this example for a real transcript and a real app screenshot when you have one. Do not present it as a user story. -->
-      <p class="panel-kicker">In the app</p>
-      <div class="panel-head">
-        <div>
-          <p class="panel-word">Samaan</p>
-          <p class="panel-sub">Good evening</p>
-        </div>
-        <div class="plus" aria-hidden="true">+</div>
-      </div>
-      <div class="capture">
-        <div class="nuskha" lang="ur" dir="rtl" aria-hidden="true">نسخہ</div>
-        <div>
-          <strong>Capture a recipe</strong>
-          <span>Record it or paste it to extract ingredients</span>
-        </div>
-      </div>
-      <div class="voice-row">
-        <span class="voice-dot" aria-hidden="true"></span>
-        <span class="voice-label">Recording</span>
-        <span class="wave" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></span>
-        <span class="voice-time">0:47</span>
-      </div>
-      <p class="section-rule rule-saag"><span>Recipes</span></p>
-      <div class="stock">
-        <div class="chip" aria-hidden="true">🍛</div>
-        <div class="stock-name">Aloo keema</div>
-        <div class="stock-meta meta-when">Just saved</div>
-      </div>
-      <div class="stock">
-        <div class="chip" aria-hidden="true">🍮</div>
-        <div class="stock-name">Gajar halwa</div>
-        <div class="stock-meta meta-when">3 days ago</div>
-      </div>
-      <p class="section-rule rule-anaar"><span>Running low</span></p>
-      <div class="stock">
-        <div class="chip" aria-hidden="true">🌾</div>
-        <div class="stock-name">Atta</div>
-        <div class="stock-meta tone-out">○ out</div>
-      </div>
-      <div class="stock">
-        <div class="chip" aria-hidden="true">🧈</div>
-        <div class="stock-name">Ghee</div>
-        <div class="stock-meta tone-masala">◐ low</div>
-      </div>
-    </aside>
+    <figure class="app-shot hero-shot" id="example">
+      <img src="/app-recipe-review.png" width="603" height="1041" alt="The Samaan Pantry review screen for Bhindi with Onions, from Mom. Each ingredient shows the words that were said under it, such as three packets of frozen bhindi, or fresh bhindi, and seven, eight medium onions.">
+      <figcaption>A real 1.7 review screen. What was said stays under each ingredient.</figcaption>
+    </figure>
   </div>
 
   <section class="story wrap" aria-labelledby="story-heading">
     <p class="kicker center">Why we built it</p>
     <h2 id="story-heading">A recipe kept in memory is one phone call away from being lost.</h2>
-    <p>Desi recipes travel by word and by hand. No cards, no measurements, nothing written down. A dish learned standing next to someone, explained again over the phone the first time you try it alone, sitting in a voice note nobody goes back to.</p>
-    <p>Samaan Pantry is for writing those down while there is still someone to ask.</p>
-    <p>It is not a grocery delivery service, a price-comparison tool, or inventory software for a business.</p>
-  </section>
-
-  <section class="founder wrap" aria-labelledby="founder-heading">
-    <h2 id="founder-heading">Who builds it</h2>
-    <p>Samaan Pantry is built by Haaris Shariff at <a href="https://samaan.tech/press">Saman Technologies LLC</a>, doing business as Samaan Technologies. Write to <a href="mailto:haaris@samaan.tech">haaris@samaan.tech</a>, or follow along on <a href="https://x.com/SamaanTechno">X</a> and <a href="https://www.tiktok.com/@samaan.technologie">TikTok</a>.</p>
-    <!-- Haaris: the audit (D3.3) asks for your photo and a one-paragraph "why I built this" in your own words. Add the photo as /founder.jpg and write the paragraph yourself. It is not drafted here so no motive or memory is invented. -->
+    <ul class="story-points">
+      <li>No cards. No measurements.</li>
+      <li>Explained once at the stove, again over the phone.</li>
+      <li>Sitting in a voice note nobody plays back.</li>
+    </ul>
+    <p class="not-line">Not grocery delivery. Not price comparison. Not business inventory.</p>
   </section>
 
   <section class="steps-section wrap" aria-labelledby="steps-heading">
@@ -235,22 +182,35 @@ analytics.init({
       <article class="feature-card">
         <p class="kicker">01 · Record it</p>
         <h3>Hit record while they talk</h3>
-        <p>Tap Capture a recipe and hit record while someone explains the dish, at the stove or over the phone, for up to ten minutes. Or choose a voice note you already have. Code-switched is fine. Mixed Urdu, Hindi, Punjabi, and English come through.</p>
-        <p>You can also paste a YouTube video, a recipe site, or an Instagram caption, or type it the way they say it.</p>
+        <ul class="card-list">
+          <li>At the stove or over the phone</li>
+          <li>Up to 10 minutes, or choose a voice note</li>
+          <li>Mixed Urdu, Hindi, Punjabi, and English</li>
+          <li>Or paste a YouTube, recipe site, or Instagram link</li>
+        </ul>
       </article>
       <article class="feature-card">
         <p class="kicker">02 · Keep it</p>
         <h3>Andaza stays andaza</h3>
-        <p>Samaan Pantry pulls out the ingredients and steps. Vague amounts stay vague. No number gets guessed, and the words they said stay with the recipe, so you can go back to them. Short on something? Send what is missing to a shopping list.</p>
+        <ul class="card-list">
+          <li>Ingredients and steps, pulled out for you</li>
+          <li>Vague amounts stay vague. No guessed numbers.</li>
+          <li>What they said stays under each ingredient</li>
+          <li>Missing items go to a shopping list in one tap</li>
+        </ul>
       </article>
       <article class="feature-card">
         <p class="kicker">03 · Share it</p>
         <h3>One family, one cookbook</h3>
-        <p>Start a private family cookbook and invite people with a link or a code. Only members see it. Joining is free. Starting one needs Samaan Pro.</p>
-        <p>The Community book holds recipes other cooks have shared. A recipe you make from a recording or pasted words is added there for signed-in cooks to read. Deleting the recipe takes it down. Recipes from links stay private unless you add them.</p>
+        <ul class="card-list">
+          <li>Private to the people you invite</li>
+          <li>Invite with a link or a code</li>
+          <li>Joining is free</li>
+          <li>Starting one needs Samaan Pro</li>
+        </ul>
       </article>
     </div>
-    <p class="guest-note">Pantry, lists, and recipes work without an account. Recipe extraction, sync, and family cookbooks need a signed-in account. New accounts get 5 recipe extractions for life, and Samaan Pro is unlimited. The first time, the app asks before it sends your recipe to our server. Recordings go to ElevenLabs to be turned into text, and recipe text goes to Anthropic to pull out the ingredients and steps. Check the ingredients and amounts before you shop or cook. The <a href="/privacy">privacy policy</a> says what is collected.</p>
+    <p class="callout"><strong>Heads-up on the Community book.</strong> Recipes from a recording or pasted words also show there for signed-in cooks. Delete the recipe to take it down. Recipes from links stay private.</p>
   </section>
 
   <!-- Haaris: section titled "Kept", between these steps and the feature grid. Add 3 to 5 real quotes. Each needs a first name, a role, and a specific outcome. Do not invent quotes. Do not use she, her, mom, grandma, Ammi, or Nani. -->
@@ -267,32 +227,55 @@ analytics.init({
           <path d="M4 9h16v11H4z"/><path d="M4 13h16"/><path d="M8 9V5h8v4"/>
         </svg>
         <h3>Know what's in the pantry</h3>
-        <p>From atta and daal to the last jar of ghee, keep your staples in view. Scan a barcode instead of typing every staple in by hand, or add an item yourself. Set the minimum you like to keep on hand, and see what's running low on Home before your next shop.</p>
+        <ul class="card-list">
+          <li>Scan a barcode or add it yourself</li>
+          <li>Set the minimum you keep on hand</li>
+          <li>See what's running low on Home</li>
+        </ul>
       </article>
       <article class="feature-card">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
           <path d="M8 7h12"/><path d="M8 12h12"/><path d="M8 17h12"/><path d="M4 7l1 1 2-2"/><path d="M4 12h.01"/><path d="M4 17h.01"/>
         </svg>
         <h3>Keep the next shop in order</h3>
-        <p>Add what you need to a shopping list, whether it came off a recipe or out of your head. Check off an item as you buy it, and its matching pantry item updates too.</p>
+        <ul class="card-list">
+          <li>Add from a recipe or from your head</li>
+          <li>Check items off as you buy them</li>
+          <li>The pantry count updates with each check</li>
+        </ul>
       </article>
       <article class="feature-card">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M4 20a8 8 0 0 1 16 0"/>
         </svg>
         <h3>Start before you sign up</h3>
-        <p>Try pantry and lists without an account. Recipe extraction needs a signed-in account. When you sign in with email, your kitchen syncs to your account, and what you added before your first sign-in comes along.</p>
+        <ul class="card-list">
+          <li>Pantry, lists, and recipes work without an account</li>
+          <li>Sign in to sync across devices</li>
+          <li>What you added first comes along</li>
+        </ul>
       </article>
     </div>
+
+    <h3 class="facts-title">Good to know</h3>
+    <table class="facts">
+      <tbody>
+        <tr><th scope="row">No account needed</th><td>Pantry, lists, recipes</td></tr>
+        <tr><th scope="row">Needs a sign-in</th><td>Recipe extraction, sync, family cookbooks</td></tr>
+        <tr><th scope="row">Your recordings</th><td>Turned into text by ElevenLabs. We don't keep the audio.</td></tr>
+        <tr><th scope="row">Your recipe text</th><td>Read by Anthropic to pull out ingredients and steps</td></tr>
+        <tr><th scope="row">Before you cook</th><td>Check the amounts. Extraction can miss a step.</td></tr>
+      </tbody>
+    </table>
+    <p class="guest-note">Details in the <a href="/privacy">privacy policy</a>.</p>
   </section>
 
   <!-- Haaris: the audit (D3.2) asks for three named user stories with a photo, a role such as "second-gen, Chicago", and a one-line outcome from real users. Fill these from people who agreed to be quoted, then remove the hidden attribute. Do not use made-up names or quotes. -->
   <section class="stories wrap" aria-labelledby="stories-heading" hidden>
     <h2 id="stories-heading">What people saved</h2>
-    <!-- <figure class="story"><img src="" alt=""><blockquote>QUOTE</blockquote><figcaption>NAME, ROLE</figcaption></figure> x3 -->
   </section>
 
-  <!-- Haaris: the audit (D3.1, D3.5) asks for a visible App Store rating and a real usage number here, e.g. "4.x stars on the App Store · N recipes saved". On Oct 23, 2026 the US App Store shows a 5.0 average from 1 rating, which is too thin to publish. Add the line when the count is meaningful, and date it. -->
+  <!-- Haaris: add a visible App Store rating and a real usage number here when the count is meaningful. -->
   <p class="proof-line" hidden>RATING on the App Store · N recipes saved</p>
 
   <section class="pro" aria-labelledby="pro-heading">
@@ -307,25 +290,27 @@ analytics.init({
           <ul class="plan-list">
             <li>
               <span class="check" aria-hidden="true">✓</span>
-              <span>New accounts get 5 recipe extractions for life</span>
+              <span>5 recipe extractions for life</span>
             </li>
             <li>
               <span class="check" aria-hidden="true">✓</span>
-              <span>Join family cookbooks and read the Community book</span>
+              <span>Join family cookbooks</span>
             </li>
             <li>
               <span class="check" aria-hidden="true">✓</span>
-              <span>Unlimited pantry and shopping lists</span>
+              <span>Read the Community book</span>
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              <span>Unlimited pantry and lists</span>
             </li>
           </ul>
         </div>
         <div class="plan plan-pro">
           <p class="plan-badge">Recommended</p>
           <p class="plan-name">Samaan Pro</p>
-          <p class="plan-for">For capturing the whole family's recipes, not just five.</p>
           <p class="plan-price">$7.99 <span>a month</span></p>
           <p class="plan-cycle">Or $59.99 a year, saving 37%.</p>
-          <p class="plan-anchor">$7.99 a month, less than one takeaway order, for the recipes you'd otherwise lose.</p>
           <ul class="plan-list">
             <li>
               <span class="check" aria-hidden="true">✓</span>
@@ -346,7 +331,6 @@ analytics.init({
           </ul>
         </div>
       </div>
-      <p class="guest-note">Starting a family cookbook needs Samaan Pro. Joining one is free.</p>
       <p class="store-cta">
         <a class="store-badge" href="https://apps.apple.com/us/app/id6761982454" aria-label="Download Samaan Pantry on the App Store">
           <img src="/download-on-the-app-store.svg" alt="Download on the App Store" width="132" height="44">
@@ -354,6 +338,11 @@ analytics.init({
       </p>
       <p class="fine">Upgrade in the app. Purchases are handled by Apple.</p>
     </div>
+  </section>
+
+  <section class="founder wrap" aria-labelledby="founder-heading">
+    <h2 id="founder-heading">Who builds it</h2>
+    <p>Haaris Shariff at <a href="https://samaan.tech/press">Samaan Technologies</a>. <a href="mailto:haaris@samaan.tech">haaris@samaan.tech</a> · <a href="https://x.com/SamaanTechno">X</a> · <a href="https://www.tiktok.com/@samaan.technologie">TikTok</a></p>
   </section>
 
   <aside class="related wrap" aria-label="Related">
