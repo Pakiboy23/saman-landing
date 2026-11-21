@@ -1,10 +1,12 @@
-/* Samaan Pantry — light-mode tokens from the iOS asset catalog.
-   Display P3 components resolved to sRGB in Chrome (color-profile srgb).
+/* Samaan Pantry — dark-mode tokens from the iOS asset catalog.
+   Values are the dark appearances of the Display P3 colorsets, read as sRGB.
    Sources: Saman/Assets.xcassets/Pantry/*.colorset
             Saman/Core/Design/SamaanTheme.swift
             Saman/Core/Design/PantryFont.swift
-   Pital is not a color in the app. Low stock uses AccentMasala.
-   Borders use BorderAkhrot / BorderAkhrotSoft. Attention uses AccentAnaar. */
+   The site is dark only, to match the App Store, Product Hunt, and samaan.tech.
+   Token names keep their app names. In dark, --doodh is the page and --ink is cream.
+   --saag is BrandSaagSoft here: BrandSaag (#5A8A65) is 4.4:1 on the page, under AA
+   for body text, so links, kickers, and buttons use the softer green. */
 
 @font-face {
   font-family: "Cormorant Garamond";
@@ -33,19 +35,20 @@
 }
 
 :root {
-  --doodh: #FDF8ED;          /* SurfaceDoodh */
-  --malai: #F4E9D0;          /* SurfaceMalai */
-  --atta: #E8D4AB;           /* SurfaceAtta */
-  --saag: #2E6D43;           /* BrandSaag */
-  --saag-deep: #205332;      /* BrandSaagDeep */
-  --saag-soft: #6DA77F;      /* BrandSaagSoft */
-  --anaar: #AA2028;          /* AccentAnaar */
-  --masala: #935736;         /* AccentMasala — low stock; app calls this brass */
-  --akhrot: #7B3E1B;         /* BorderAkhrot */
-  --akhrot-soft: #AE8966;    /* BorderAkhrotSoft */
-  --ink: #201A13;            /* InkKohl */
-  --ink-soft: #5E5446;       /* InkKohlSoft */
-  --hairline: rgba(174, 137, 102, 0.5);
+  --doodh: #161B18;          /* SurfaceDoodh, dark — page */
+  --malai: #1F2A23;          /* SurfaceMalai, dark — card */
+  --atta: #2D3D33;           /* SurfaceAtta, dark — chip */
+  --saag: #8FB497;           /* BrandSaagSoft, dark — links, kickers, buttons (7.6:1) */
+  --saag-deep: #B4CFB9;      /* lighter saag for hover on dark */
+  --saag-soft: #5A8A65;      /* BrandSaag, dark — waveform and other decoration */
+  --saag-fill: #3F6B47;      /* BrandSaagDeep, dark — large filled panels */
+  --anaar: #D46C6C;          /* AccentAnaar, dark */
+  --masala: #B07A56;         /* AccentMasala, dark — low stock */
+  --akhrot: #A0613A;         /* BorderAkhrot, dark */
+  --akhrot-soft: #5C4A38;    /* BorderAkhrotSoft, dark */
+  --ink: #FCF8EE;            /* InkKohl, dark */
+  --ink-soft: #C9C0AA;       /* InkKohlSoft, dark */
+  --hairline: rgba(201, 192, 170, 0.18);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -63,7 +66,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { background: var(--doodh); scroll-behavior: smooth; }
+html { background: var(--doodh); color-scheme: dark; scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -380,7 +383,7 @@ a:hover { color: var(--saag-deep); }
   padding: 10px 12px;
   border: 1px solid var(--hairline);
   border-radius: var(--radius-sm);
-  background: #fff;
+  background: var(--malai);
   color: var(--ink);
   font: inherit;
   font-size: 16px;
@@ -479,7 +482,7 @@ a:hover { color: var(--saag-deep); }
   height: 48px;
   border-radius: 10px;
   background: var(--saag);
-  color: #fff;
+  color: var(--doodh);
   display: grid;
   place-items: center;
   font-family: var(--font-urdu);
@@ -674,6 +677,27 @@ a:hover { color: var(--saag-deep); }
   font-size: 12px;
   line-height: 1.45;
   color: var(--ink-soft);
+}
+
+.app-shot {
+  margin: 14px 0 18px;
+}
+
+.app-shot img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border: 1px solid var(--hairline);
+  border-radius: 22px;
+}
+
+.app-shot figcaption {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  text-align: center;
 }
 
 .tone-saag { color: var(--saag); }
@@ -876,19 +900,19 @@ a:hover { color: var(--saag-deep); }
 .plan-list li:last-child { margin-bottom: 0; }
 
 .plan-pro {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--doodh);
+  background: var(--saag-fill);
+  border-color: var(--saag-fill);
+  color: var(--ink);
 }
 
-.plan-pro .plan-name { color: var(--saag-soft); }
+.plan-pro .plan-name { color: var(--ink); }
 
-.plan-pro .plan-price { color: var(--doodh); }
+.plan-pro .plan-price { color: var(--ink); }
 
 .plan-pro .plan-price span,
 .plan-pro .plan-for,
 .plan-pro .plan-cycle,
-.plan-pro .plan-anchor { color: rgba(253, 248, 237, 0.78); }
+.plan-pro .plan-anchor { color: rgba(252, 248, 238, 0.86); }
 
 .plan-anchor {
   margin: 12px 0 0;
@@ -896,7 +920,7 @@ a:hover { color: var(--saag-deep); }
   line-height: 1.45;
 }
 
-.plan-pro .check { color: var(--saag-soft); }
+.plan-pro .check { color: var(--ink); }
 
 .check {
   color: var(--saag);
@@ -1057,8 +1081,13 @@ a:hover { color: var(--saag-deep); }
   .site-header { padding: 14px 28px; }
   .hero {
     grid-template-columns: 1.15fr 0.85fr;
-    align-items: center;
+    align-items: start;
     padding: 56px 0 40px;
+  }
+  .hero > div:first-child {
+    position: sticky;
+    top: 112px;
+    padding-top: 24px;
   }
   .story { padding: 40px 0 56px; }
   .steps { grid-template-columns: repeat(3, 1fr); }
