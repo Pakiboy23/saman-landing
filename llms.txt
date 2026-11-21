@@ -21,7 +21,6 @@ Updated: 2026-11-21 (app version 1.7)
 - Family cookbooks: private to members. Invite by link or code. Starting one needs Samaan Pro. Joining is free.
 - The Community book: any signed-in user can read it. A recipe made from a recording or pasted words is added to it when saved. Recipes from links are added only if the owner chooses.
 - Pantry with barcode scan and Running low. Shopping lists that update the pantry. Pantry, lists, and recipes work without an account. Extraction, sync, and family cookbooks need one.
-- It is not a grocery delivery service, a price-comparison tool, a meal planner, or inventory software for a business.
 
 ## Price
 
